@@ -1,0 +1,325 @@
+# Cypress Automation Project Rules
+
+## Project Overview
+- **Site**: automationexercise.com
+- **Framework**: Cypress 13.6.1 + JavaScript
+- **Pattern**: Page Object Model (POM)
+- **CI/CD**: GitHub Actions with multi-browser testing
+- **Reporting**: Mochawesome
+
+## 🎯 CRITICAL: Test Implementation Methodology
+
+### Before Writing ANY Test Code:
+
+1. **Understand the Complete Scenario**
+   - Read ALL steps of the test case from the requirements
+   - Identify dependencies between steps
+   - Map out the complete user flow
+   - Document expected outcomes at each step
+
+2. **Validate with Chrome DevTools MCP (MANDATORY)**
+   - **ALWAYS** use Chrome DevTools MCP to open the actual website
+   - Navigate through the EXACT flow that will be automated
+   - Extract and document ALL real selectors from the live page:
+     - `data-qa` attributes (preferred)
+     - IDs, classes, element types
+     - Text content (case-sensitive!)
+     - Button labels, error messages, success messages
+   - Take screenshots of each step for reference
+   - Verify element visibility, modals, alerts, and timing
+   - Test form submissions and validations manually first
+   - **Document findings in `memory-bank/seletores-validados.md`**
+
+3. **Identify Data Dependencies**
+   - Tests that require user registration MUST create unique users
+   - Use timestamps for unique emails: `test.${Date.now()}@test.com`
+   - Tests that require login MUST either:
+     - Create a user first, OR
+     - Use existing fixture data that's guaranteed to exist
+   - Cleanup data after tests (delete accounts, clear carts)
+   - Ensure tests are independent and can run in any order
+
+4. **Additional Success Factors**
+   - **Handle Modals Correctly**: Close modals before clicking header buttons
+   - **Wait for Elements**: Use `.should('be.visible')` before interactions
+   - **Case Sensitivity**: Text matching is case-sensitive (e.g., "Subscription" not "SUBSCRIPTION")
+   - **Dynamic Elements**: Use `cy.wait()` or explicit waits for AJAX/animations
+   - **Multiple Elements**: Use `.first()` or `.eq(index)` when multiple matches exist
+   - **Force Clicks**: Use `{ force: true }` only when absolutely necessary
+   - **Scroll Handling**: Use `{ ensureScrollable: false }` for scroll commands
+   - **Alert Handling**: Set up `cy.on('window:alert')` BEFORE triggering action
+
+### Test Implementation Checklist:
+
+- [ ] Read complete test case requirements
+- [ ] Open Chrome DevTools MCP and navigate through flow
+- [ ] Document all selectors from live page
+- [ ] Verify text content (exact case)
+- [ ] Test form validations manually
+- [ ] Identify data dependencies
+- [ ] Create unique test data strategy
+- [ ] Implement test with validated selectors
+- [ ] Add cleanup steps (delete accounts, etc.)
+- [ ] Run test and verify it passes
+- [ ] Document any issues or workarounds
+
+### Known Complex Scenarios (Require Extra Validation):
+
+- **Checkout Flow (TC014, TC016, TC023, TC024)**: Multiple modals, payment forms, timing issues
+- **Contact Form (TC006)**: File upload, alert handling, success message
+- **Product Categories (TC018, TC019)**: Dynamic content, category navigation
+- **Cart Operations**: Modal handling, "Continue Shopping" vs "View Cart"
+
+### Success Metrics:
+
+- ✅ **100% of implemented tests must pass**
+- ✅ **All selectors validated with Chrome DevTools MCP**
+- ✅ **Tests are independent and repeatable**
+- ✅ **Proper cleanup after each test**
+- ✅ **No hardcoded waits (use element-based waits)**
+
+## Architecture Patterns
+
+### Page Object Model
+- **Location**: `cypress/support/page-objects/`
+- **Base Class**: Extends from BasePage with 20+ common methods
+- **Naming**: PascalCase (e.g., HomePage, LoginPage)
+- **Seletores Hierarchy**: 
+  1. data-qa (preferred) → 'input[data-qa="login-email"]'
+  2. Class + Type → 'a.add-to-cart'
+  3. ID → 'input#search_product'
+  4. Contains → cy.contains('button', 'Login')
+  5. XPath (avoid)
+
+### Custom Commands
+- **Location**: `cypress/support/commands.js`
+- **Naming**: cy.actionDescription() (e.g., cy.fillSignupForm())
+- **Reusable Operations**: 
+  - `cy.fillSignupForm()` - 5+ steps encapsulated
+  - `cy.fillAddressForm()` - Address fill
+  - `cy.createAccount()` - Complete signup flow
+  - `cy.deleteAccount()` - Account cleanup
+  - `cy.addProductsToCart()` - Add multiple products
+  - `cy.loginUser(email, password)` - Login
+  - `cy.logoutUser()` - Logout
+  - `cy.generateEmail()` - Random email generator
+
+### Fixtures
+- **Location**: `cypress/fixtures/`
+- **Structure**: JSON with semantic naming
+- **Usage**: cy.fixture('users.json').then()
+- **Data**: users, addresses, payment info
+
+## Test Organization
+
+### File Structure by Feature
+```
+cypress/e2e/
+├── auth/ (register.cy.js, login.cy.js)
+├── products/ (products.cy.js, search.cy.js)
+├── cart/ (cart.cy.js)
+├── checkout/ (checkout.cy.js)
+└── other/ (ui.cy.js, contact.cy.js)
+```
+
+### Test Case Naming Convention
+- Format: `TC###: Description`
+- Example: `TC001: Should register a new user successfully`
+- Comments in Portuguese
+
+## Code Standards
+
+### Best Practices Implemented
+1. **Always validate before action**: `cy.get(selector).should('be.visible').click()`
+2. **Use .within() for context**: Avoid fragile nested selectors
+3. **Avoid hard waits**: Use waits on elements instead of fixed time
+4. **Fixture for common data**: Centralize test data
+5. **Cleanup after tests**: deleteAccount(), clearCookies()
+6. **Email uniqueness**: Use timestamps for unique emails
+
+### Timeout Configuration
+- pageLoadTimeout: 30000ms
+- defaultCommandTimeout: 10000ms
+- requestTimeout: 30000ms
+- Retry: 1 attempt in headless mode
+
+### Element Waiting Strategy
+- Default: relies on Cypress' built-in waits
+- Dynamic elements: explicit `cy.wait()`
+- API responses: `cy.intercept().as() + cy.wait()`
+
+## Test Case Implementation Rules
+
+### Per Test Structure
+```javascript
+describe('Feature Name', () => {
+  let page; // Page object instance
+  
+  beforeEach(() => {
+    page = new FeaturePage();
+    page.visit();
+  });
+  
+  it('TCXXX: Clear description', () => {
+    // Steps with comments matching requirements
+    page.action(); // Step N
+  });
+});
+```
+
+### Fixture Usage
+```javascript
+cy.fixture('users.json').then((userData) => {
+  // Use userData here
+  cy.loginUser(userData.existingUser.email, userData.existingUser.password);
+});
+```
+
+### Alert Handling
+```javascript
+cy.dismissAlert();
+cy.on('window:alert', (text) => {
+  expect(text).to.include('expected text');
+});
+```
+
+## CI/CD Pipeline
+
+### GitHub Actions Workflow
+- **Location**: `.github/workflows/cypress-tests.yml`
+- **Triggers**: Push main/develop, PR to main, daily 9 AM UTC
+- **Browsers**: Chromium, Firefox (parallel)
+- **Node**: 18.x LTS
+- **Artifacts**: Reports (30d), screenshots (failure), videos
+
+### Report Generation
+- **Tool**: Mochawesome
+- **Location**: `cypress/reports/mochawesome-report/`
+- **Script**: `scripts/generate-report.js`
+- **Format**: HTML with JSON data
+
+## Common Issues & Solutions
+
+### Intermittent Failures
+**Cause**: Dynamic elements, slow API  
+**Solution**: 
+- Increase timeout for specific elements
+- Use explicit waits on elements
+- Implement retry (already configured: 1 attempt)
+
+### Element Not Found
+**Solution**:
+1. Verify selector with DevTools
+2. Check for dynamic loading (iframe, shadow DOM)
+3. Use `cy.debug()` to pause execution
+4. Increase timeout for specific get()
+
+### Empty Screenshots
+**Cause**: Screenshot timing too fast  
+**Solution**: Add `cy.wait(500)` before screenshot
+
+## Maintenance Rules
+
+### When to Update Seletores
+1. Page HTML changes
+2. Element reorganization
+3. Attribute (data-qa) changes
+4. Test failures due to selector
+
+### Update Process
+1. Modify in page-objects/
+2. Search all usages with grep
+3. Test dependencies
+4. Document in .cursorrules if pattern changed
+
+### Selector Fragility Warning
+- ❌ Deep nested selectors
+- ❌ Rely on text content only
+- ✅ Prefer data-qa attributes
+- ✅ Use semantic HTML attributes
+- ✅ Combine multiple strategies
+
+## Version Control
+
+### Branching Strategy
+- `main` - Production ready
+- `develop` - Development branch
+- Feature branches - feature/description
+
+### Commit Messages
+- Format: "feat/fix: brief description"
+- Include TC number if fixing test
+- Example: "feat: implement TC001 register user"
+
+## Performance Considerations
+
+### Expected Execution Times
+- Per test: 15-30 seconds
+- Full suite (26 tests): 10-15 minutes
+- CI with 2 browsers: 20-25 minutes
+
+### Optimization Techniques Used
+1. Retry strategy for flaky tests
+2. Fixture data centralization
+3. Custom commands for complex operations
+4. Parallel browser execution in CI
+
+## Security
+
+### Sensitive Data
+- ❌ No hardcoded passwords in code
+- ✅ Fixtures for test data only
+- ✅ Environment variables for CI secrets
+- ✅ No credential uploads to GitHub
+
+## Documentation
+
+### Memory Bank Files
+- `projectbrief.md` - Overview & objectives
+- `systemPatterns.md` - Architecture & design patterns
+- `techContext.md` - Tech stack & setup
+- `progress.md` - Status & completion tracking
+
+### Key Documentation
+- README.md - Complete setup & usage guide
+- Code comments in Portuguese for context
+- JSDoc in page-objects for methods
+
+## Development Workflow
+
+### Local Development
+```bash
+npm install
+npm run cy:open              # Interactive mode
+npm run test                 # Headless with report
+npm run test:headed          # Visual + report
+```
+
+### Debugging
+```bash
+npm run cy:run -- --debug    # Debug mode
+cy.debug()                   # Pause execution
+cy.log('message')            # Add logs
+```
+
+## Future Considerations
+
+### Planned Enhancements
+- API testing complementary tests
+- Performance benchmarking
+- Slack notifications
+- Test dashboard
+- Accessibility testing (a11y)
+- TypeScript migration
+- BDD with Cucumber
+
+### Known Limitations
+- Invoice download: Mock in CI environment
+- Dynamic timeouts needed for slow server
+- Element selectors: Subject to page changes
+- Alert handling: Browser dependent
+
+---
+**Last Updated**: 2025-10-25  
+**Version**: 1.0.0  
+**Status**: Complete & Ready for Production

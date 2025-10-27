@@ -1,0 +1,17 @@
+node_modules/
+cypress/reports/
+cypress/screenshots/
+cypress/videos/
+.env
+.env.local
+dist/
+build/
+*.log
+.DS_Store
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.nyc_output/
+coverage/
