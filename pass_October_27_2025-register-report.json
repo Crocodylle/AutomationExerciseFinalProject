@@ -5,9 +5,9 @@
     "passes": 2,
     "pending": 0,
     "failures": 0,
-    "start": "2025-10-27T21:27:45.696Z",
-    "end": "2025-10-27T21:28:20.861Z",
-    "duration": 35165,
+    "start": "2025-10-27T21:27:44.487Z",
+    "end": "2025-10-27T21:28:18.800Z",
+    "duration": 34313,
     "testsRegistered": 2,
     "passPercent": 100,
     "pendingPercent": 0,
@@ -18,7 +18,7 @@
   },
   "results": [
     {
-      "uuid": "11a76651-c292-4be2-9e9e-509181d513e1",
+      "uuid": "ad505ee6-894c-4a41-8899-9ba95f9723dd",
       "title": "",
       "fullFile": "cypress/e2e/auth/register.cy.js",
       "file": "cypress/e2e/auth/register.cy.js",
@@ -27,7 +27,7 @@
       "tests": [],
       "suites": [
         {
-          "uuid": "c7fa2f7f-d83b-464b-b451-902927032eaa",
+          "uuid": "4750d2a3-cd15-4ed9-81dc-55e630a64707",
           "title": "User Registration Tests",
           "fullFile": "",
           "file": "",
@@ -38,7 +38,7 @@
               "title": "TC001: Should register a new user successfully",
               "fullTitle": "User Registration Tests TC001: Should register a new user successfully",
               "timedOut": null,
-              "duration": 15315,
+              "duration": 14662,
               "state": "passed",
               "speed": "slow",
               "pass": true,
@@ -47,8 +47,8 @@
               "context": null,
               "code": "// Step 1-3: Navegação e verificação\nhomePage.verifyTextPresent('Full-Fledged practice website for Automation Engineers');\n// Step 4-16: Registro completo de usuário\ncy.fixture('users.json').then(userData => {\n  const uniqueEmail = `testuser.${Date.now()}@automationexercise.com`;\n  const testUser = _objectSpread(_objectSpread({}, userData.newUser), {}, {\n    email: uniqueEmail\n  });\n  cy.registerNewUser(testUser, userData.address);\n  // Step 17-18: Delete Account\n  cy.deleteAccount();\n});",
               "err": {},
-              "uuid": "e3dd3002-9802-495d-a1bf-76edcf505c8e",
-              "parentUUID": "c7fa2f7f-d83b-464b-b451-902927032eaa",
+              "uuid": "327d6615-ff44-4198-9233-e7824ac7d33f",
+              "parentUUID": "4750d2a3-cd15-4ed9-81dc-55e630a64707",
               "isHook": false,
               "skipped": false
             },
@@ -56,7 +56,7 @@
               "title": "TC005: Should show error when registering with existing email",
               "fullTitle": "User Registration Tests TC005: Should show error when registering with existing email",
               "timedOut": null,
-              "duration": 19626,
+              "duration": 19404,
               "state": "passed",
               "speed": "slow",
               "pass": true,
@@ -65,21 +65,21 @@
               "context": null,
               "code": "// Step 1-3: Home page\nhomePage.verifyTextPresent('Full-Fledged practice website for Automation Engineers');\ncy.fixture('users.json').then(userData => {\n  const testEmail = `existing.${Date.now()}@test.com`;\n  const testUser = _objectSpread(_objectSpread({}, userData.newUser), {}, {\n    email: testEmail\n  });\n  // Criar conta primeiro\n  cy.registerNewUser(testUser, userData.address);\n  // Fazer logout\n  homePage.logout();\n  // Tentar registrar novamente com o mesmo email\n  // Step 4-5: Click Signup/Login e verificar página\n  homePage.clickSignupLogin();\n  loginPage.verifySignupPageVisible();\n  // Step 6: Enter name and existing email\n  loginPage.signup(userData.newUser.name, testEmail);\n  // Step 8: Verify error message\n  loginPage.verifyEmailExistsError();\n  // Cleanup: Login e deletar conta\n  cy.get('input[data-qa=\"login-email\"]').clear().type(testEmail);\n  cy.get('input[data-qa=\"login-password\"]').clear().type(userData.newUser.password);\n  cy.get('button[data-qa=\"login-button\"]').click();\n  cy.contains('Logged in as', {\n    timeout: 10000\n  }).should('be.visible');\n  cy.deleteAccount();\n});",
               "err": {},
-              "uuid": "25335ff4-01c2-4fca-ba76-9958302cb0a7",
-              "parentUUID": "c7fa2f7f-d83b-464b-b451-902927032eaa",
+              "uuid": "57c8fc35-4cff-487b-bcb1-21c781702ed8",
+              "parentUUID": "4750d2a3-cd15-4ed9-81dc-55e630a64707",
               "isHook": false,
               "skipped": false
             }
           ],
           "suites": [],
           "passes": [
-            "e3dd3002-9802-495d-a1bf-76edcf505c8e",
-            "25335ff4-01c2-4fca-ba76-9958302cb0a7"
+            "327d6615-ff44-4198-9233-e7824ac7d33f",
+            "57c8fc35-4cff-487b-bcb1-21c781702ed8"
           ],
           "failures": [],
           "pending": [],
           "skipped": [],
-          "duration": 34941,
+          "duration": 34066,
           "root": false,
           "rootEmpty": false,
           "_timeout": 2000
