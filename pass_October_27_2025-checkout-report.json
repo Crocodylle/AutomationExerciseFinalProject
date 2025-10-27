@@ -1,0 +1,164 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 4,
+    "passes": 4,
+    "pending": 0,
+    "failures": 0,
+    "start": "2025-10-27T21:28:41.292Z",
+    "end": "2025-10-27T21:29:55.692Z",
+    "duration": 74400,
+    "testsRegistered": 4,
+    "passPercent": 100,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "263eb310-17ba-4d88-a43d-2186f2b6bbed",
+      "title": "",
+      "fullFile": "cypress/e2e/checkout/checkout.cy.js",
+      "file": "cypress/e2e/checkout/checkout.cy.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "2c0a588c-9525-4ad4-909e-76711e29f015",
+          "title": "Checkout and Order Tests",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "TC014: Should place order registering during checkout",
+              "fullTitle": "Checkout and Order Tests TC014: Should place order registering during checkout",
+              "timedOut": null,
+              "duration": 19135,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "// Step 1-3: Home page\nhomePage.verifyTextPresent('Full-Fledged practice website for Automation Engineers');\n// Step 4-5: Add product and view cart\ncy.addProductAndViewCart();\n// Step 6: Click Proceed to Checkout\ncy.contains('Proceed To Checkout').click();\n// Step 7: Verify modal and click Register/Login\ncy.contains('Register / Login account to proceed on checkout').should('be.visible');\ncy.contains('a', 'Register / Login').click();\n// Step 8-11: Register new user\ncy.fixture('users.json').then(userData => {\n  const uniqueEmail = `checkout.${Date.now()}@test.com`;\n  const testUser = _objectSpread(_objectSpread({}, userData.newUser), {}, {\n    email: uniqueEmail\n  });\n  loginPage.signup(testUser.name, testUser.email);\n  cy.contains('Enter Account Information').should('be.visible');\n  cy.fillSignupForm(testUser);\n  cy.fillAddressForm(userData.address);\n  cy.get('button[data-qa=\"create-account\"]').click();\n  cy.contains('Account Created!', {\n    timeout: 10000\n  }).should('be.visible');\n  cy.get('a[data-qa=\"continue-button\"]').click();\n  cy.contains('Logged in as').should('be.visible');\n  // Step 12: Click Cart again\n  homePage.clickCart();\n  // Step 13-19: Proceed to checkout and complete order\n  cy.contains('Proceed To Checkout').click();\n  cy.completeCheckout('Please deliver carefully');\n  // Cleanup\n  cy.deleteAccount();\n});",
+              "err": {},
+              "uuid": "b2ac84d5-df88-4f91-8cc5-a7ccfc67cc2d",
+              "parentUUID": "2c0a588c-9525-4ad4-909e-76711e29f015",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "TC016: Should place order with pre-login",
+              "fullTitle": "Checkout and Order Tests TC016: Should place order with pre-login",
+              "timedOut": null,
+              "duration": 18892,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "// Step 1-3: Home page\nhomePage.verifyTextPresent('Full-Fledged practice website for Automation Engineers');\ncy.fixture('users.json').then(userData => {\n  const uniqueEmail = `prelogin.${Date.now()}@test.com`;\n  const testUser = _objectSpread(_objectSpread({}, userData.newUser), {}, {\n    email: uniqueEmail\n  });\n  // Step 4-10: Register and create account\n  cy.registerNewUser(testUser, userData.address);\n  // Step 11-12: Add product and view cart\n  cy.addProductAndViewCart();\n  // Step 13-19: Proceed to checkout and complete order\n  cy.contains('Proceed To Checkout').click();\n  cy.completeCheckout('Test order with pre-login');\n  // Step 20: Delete account\n  cy.deleteAccount();\n});",
+              "err": {},
+              "uuid": "145d07f3-55c3-4986-a3bd-406cc65ed74b",
+              "parentUUID": "2c0a588c-9525-4ad4-909e-76711e29f015",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "TC023: Should verify address details in checkout",
+              "fullTitle": "Checkout and Order Tests TC023: Should verify address details in checkout",
+              "timedOut": null,
+              "duration": 14943,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "// Step 1-3: Home page\nhomePage.verifyTextPresent('Full-Fledged practice website for Automation Engineers');\ncy.fixture('users.json').then(userData => {\n  const uniqueEmail = `address.${Date.now()}@test.com`;\n  const testUser = _objectSpread(_objectSpread({}, userData.newUser), {}, {\n    email: uniqueEmail\n  });\n  // Step 4-11: Register and fill account details\n  cy.registerNewUser(testUser, userData.address);\n  // Step 12-13: Add product and view cart\n  cy.addProductAndViewCart();\n  // Step 14: Click Proceed to Checkout\n  cy.contains('Proceed To Checkout').click();\n  // Step 15-17: Verify delivery and billing addresses\n  cy.get('#address_delivery').should('be.visible').within(() => {\n    cy.contains(userData.address.firstName).should('be.visible');\n    cy.contains(userData.address.address).should('be.visible');\n    cy.contains(userData.address.city).should('be.visible');\n  });\n  cy.get('#address_invoice').should('be.visible').within(() => {\n    cy.contains(userData.address.firstName).should('be.visible');\n    cy.contains(userData.address.address).should('be.visible');\n    cy.contains(userData.address.city).should('be.visible');\n  });\n  // Cleanup\n  cy.deleteAccount();\n});",
+              "err": {},
+              "uuid": "058128a5-d9e5-4795-b23a-4ee02e320dac",
+              "parentUUID": "2c0a588c-9525-4ad4-909e-76711e29f015",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "TC024: Should download invoice after purchase",
+              "fullTitle": "Checkout and Order Tests TC024: Should download invoice after purchase",
+              "timedOut": null,
+              "duration": 20747,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "// Step 1-3: Home page\nhomePage.verifyTextPresent('Full-Fledged practice website for Automation Engineers');\ncy.fixture('users.json').then(userData => {\n  const uniqueEmail = `invoice.${Date.now()}@test.com`;\n  const testUser = _objectSpread(_objectSpread({}, userData.newUser), {}, {\n    email: uniqueEmail\n  });\n  // Step 4-5: Add product and view cart\n  cy.addProductAndViewCart();\n  // Step 6: Click Proceed to Checkout\n  cy.contains('Proceed To Checkout').click();\n  // Step 7: Click Register/Login\n  cy.contains('a', 'Register / Login').click();\n  // Step 8-13: Register new user\n  loginPage.signup(testUser.name, testUser.email);\n  cy.contains('Enter Account Information').should('be.visible');\n  cy.fillSignupForm(testUser);\n  cy.fillAddressForm(userData.address);\n  cy.get('button[data-qa=\"create-account\"]').click();\n  cy.contains('Account Created!', {\n    timeout: 10000\n  }).should('be.visible');\n  cy.get('a[data-qa=\"continue-button\"]').click();\n  cy.contains('Logged in as').should('be.visible');\n  // Step 14: Click Cart\n  homePage.clickCart();\n  // Step 15-21: Proceed to checkout and complete order\n  cy.contains('Proceed To Checkout').click();\n  cy.completeCheckout('Invoice test order');\n  // Step 22: Verify reached payment done page\n  cy.url().should('include', '/payment_done');\n  // Step 23-24: Download and verify invoice\n  cy.downloadInvoice();\n  // Step 25: Delete account\n  cy.deleteAccount();\n});",
+              "err": {},
+              "uuid": "21a8d2f1-751f-4077-8d2a-109120b0f364",
+              "parentUUID": "2c0a588c-9525-4ad4-909e-76711e29f015",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "b2ac84d5-df88-4f91-8cc5-a7ccfc67cc2d",
+            "145d07f3-55c3-4986-a3bd-406cc65ed74b",
+            "058128a5-d9e5-4795-b23a-4ee02e320dac",
+            "21a8d2f1-751f-4077-8d2a-109120b0f364"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 73717,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.0.1"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "[status]_[datetime]-[name]-report",
+        "saveHtml": true,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.4"
+    },
+    "marge": {
+      "options": {
+        "reportDir": "cypress/reports/mochawesome-report",
+        "reportFilename": "[status]_[datetime]-[name]-report",
+        "html": true,
+        "json": true,
+        "overwrite": false,
+        "timestamp": "longDate"
+      },
+      "version": "6.3.0"
+    }
+  }
+}
