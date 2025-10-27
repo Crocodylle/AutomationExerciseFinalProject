@@ -12,13 +12,13 @@
     "hasOther": false,
     "skipped": 0,
     "hasSkipped": false,
-    "start": "2025-10-27T21:27:01.149Z",
-    "end": "2025-10-27T21:31:08.667Z",
-    "duration": 247518
+    "start": "2025-10-27T21:35:41.094Z",
+    "end": "2025-10-27T21:39:21.880Z",
+    "duration": 220786
   },
   "results": [
     {
-      "uuid": "4d8cae5b-fc73-4470-b9da-d4328261b03b",
+      "uuid": "5141744c-fc24-4b55-9c2f-b02d6fe50e78",
       "title": "",
       "fullFile": "cypress/e2e/cart/cart.cy.js",
       "file": "cypress/e2e/cart/cart.cy.js",
@@ -27,7 +27,7 @@
       "tests": [],
       "suites": [
         {
-          "uuid": "64df42ed-a75b-4997-a3e2-2ac038a9223a",
+          "uuid": "ea811e22-4750-4205-9ba9-44ca8cabceed",
           "title": "Shopping Cart Tests",
           "fullFile": "",
           "file": "",
@@ -38,7 +38,7 @@
               "title": "TC012: Should add products to cart",
               "fullTitle": "Shopping Cart Tests TC012: Should add products to cart",
               "timedOut": null,
-              "duration": 4533,
+              "duration": 3643,
               "state": "passed",
               "speed": "fast",
               "pass": true,
@@ -47,8 +47,8 @@
               "context": null,
               "code": "// Step 1-3: Home page\nhomePage.verifyTextPresent('Full-Fledged practice website for Automation Engineers');\n// Step 4: Click Products\nhomePage.clickProducts();\n// Step 5: Hover and add first product\ncy.get('.single-products').first().within(() => {\n  cy.get('a.add-to-cart').first().click({\n    force: true\n  });\n});\n// Step 6: Continue Shopping\nhomePage.clickContinueShopping();\n// Step 7: Add second product\ncy.get('.single-products').eq(1).within(() => {\n  cy.get('a.add-to-cart').first().click({\n    force: true\n  });\n});\n// Step 8: View Cart\ncy.contains('View Cart').click();\n// Step 9-10: Verify both products in cart\ncartPage.verifyProductsInCart();",
               "err": {},
-              "uuid": "538f89f9-8169-4fe2-a00f-49573f4434d0",
-              "parentUUID": "64df42ed-a75b-4997-a3e2-2ac038a9223a",
+              "uuid": "dd50c07c-2a44-4b82-b466-6032fff7e2af",
+              "parentUUID": "ea811e22-4750-4205-9ba9-44ca8cabceed",
               "isHook": false,
               "skipped": false
             },
@@ -56,17 +56,17 @@
               "title": "TC013: Should verify product quantity in cart",
               "fullTitle": "Shopping Cart Tests TC013: Should verify product quantity in cart",
               "timedOut": null,
-              "duration": 5572,
+              "duration": 3514,
               "state": "passed",
-              "speed": "medium",
+              "speed": "fast",
               "pass": true,
               "fail": false,
               "pending": false,
               "context": null,
               "code": "// Step 1-3: Home page\nhomePage.verifyTextPresent('Full-Fledged practice website for Automation Engineers');\n// Step 4: View first product\nhomePage.clickProducts();\nproductsPage.clickViewProductFirst();\n// Step 6: Increase quantity\nproductsPage.setProductQuantity(4);\n// Step 7: Add to cart\nproductsPage.clickAddToCart();\n// Step 8: View cart\ncy.contains('View Cart').click();\n// Step 9: Verify quantity\ncy.get('.cart_quantity button').first().should('contain', '4');",
               "err": {},
-              "uuid": "ce42a2e5-6848-4520-9c63-31752a59101e",
-              "parentUUID": "64df42ed-a75b-4997-a3e2-2ac038a9223a",
+              "uuid": "9a7d94a1-68f5-4631-aa4a-1606dadb7610",
+              "parentUUID": "ea811e22-4750-4205-9ba9-44ca8cabceed",
               "isHook": false,
               "skipped": false
             },
@@ -74,7 +74,7 @@
               "title": "TC017: Should remove products from cart",
               "fullTitle": "Shopping Cart Tests TC017: Should remove products from cart",
               "timedOut": null,
-              "duration": 3727,
+              "duration": 3228,
               "state": "passed",
               "speed": "fast",
               "pass": true,
@@ -83,8 +83,8 @@
               "context": null,
               "code": "// Step 1-3: Home page\nhomePage.verifyTextPresent('Full-Fledged practice website for Automation Engineers');\n// Step 4: Add products\ncy.addProductsToCart(1);\n// Step 5: Click Cart\nhomePage.clickCart();\n// Step 6: Verify cart displayed\ncartPage.verifyProductsInCart();\n// Step 7: Remove product\ncartPage.removeProductByIndex(0);\n// Step 8: Verify product removed\ncy.wait(1000);\ncartPage.verifyCartEmpty();",
               "err": {},
-              "uuid": "dfe7fd89-9b9d-407e-932a-77a2a6f18a7d",
-              "parentUUID": "64df42ed-a75b-4997-a3e2-2ac038a9223a",
+              "uuid": "0eec20ea-c7fb-416e-b388-dc387b7e439e",
+              "parentUUID": "ea811e22-4750-4205-9ba9-44ca8cabceed",
               "isHook": false,
               "skipped": false
             },
@@ -92,7 +92,7 @@
               "title": "TC020: Should search products and verify cart after login",
               "fullTitle": "Shopping Cart Tests TC020: Should search products and verify cart after login",
               "timedOut": null,
-              "duration": 4842,
+              "duration": 3692,
               "state": "passed",
               "speed": "fast",
               "pass": true,
@@ -101,8 +101,8 @@
               "context": null,
               "code": "// Step 2-3: Home page\nhomePage.verifyTextPresent('Full-Fledged practice website for Automation Engineers');\n// Step 3: Click Products\nhomePage.clickProducts();\n// Step 5-6: Search product\nproductsPage.searchProduct('Tshirt');\n// Step 7: Verify search results\nproductsPage.verifySearchedProductsPage();\n// Step 8: Add searched products to cart\ncy.get('.single-products').first().within(() => {\n  cy.get('a.add-to-cart').first().click({\n    force: true\n  });\n});\n// Step 9: Go to cart\ncy.contains('View Cart').click();\n// Step 10-12: Verify products in cart\ncy.get('.cart_info').should('be.visible');",
               "err": {},
-              "uuid": "b9577552-25e4-4a6a-97b0-8c144432ee24",
-              "parentUUID": "64df42ed-a75b-4997-a3e2-2ac038a9223a",
+              "uuid": "0726d2b6-6fd9-4c46-866f-0d9d77648170",
+              "parentUUID": "ea811e22-4750-4205-9ba9-44ca8cabceed",
               "isHook": false,
               "skipped": false
             },
@@ -110,7 +110,7 @@
               "title": "TC022: Should add to cart from recommended items",
               "fullTitle": "Shopping Cart Tests TC022: Should add to cart from recommended items",
               "timedOut": null,
-              "duration": 2938,
+              "duration": 3089,
               "state": "passed",
               "speed": "fast",
               "pass": true,
@@ -119,24 +119,24 @@
               "context": null,
               "code": "// Step 1-3: Home page\nhomePage.verifyTextPresent('Full-Fledged practice website for Automation Engineers');\n// Step 3-4: Scroll to recommended items\nhomePage.scrollToBottom();\ncy.contains('recommended items').should('be.visible');\n// Step 5: Add to cart from recommended\ncy.get('.recommended_items').within(() => {\n  cy.get('a.add-to-cart').first().click({\n    force: true\n  });\n});\n// Step 6: View Cart\ncy.contains('View Cart').click();\n// Step 7: Verify product in cart\ncartPage.verifyProductsInCart();",
               "err": {},
-              "uuid": "dfc33a8e-65bb-405a-ad1e-b3b1e7472ff7",
-              "parentUUID": "64df42ed-a75b-4997-a3e2-2ac038a9223a",
+              "uuid": "86cf7f9e-90a1-4170-97cd-1437f0ddac41",
+              "parentUUID": "ea811e22-4750-4205-9ba9-44ca8cabceed",
               "isHook": false,
               "skipped": false
             }
           ],
           "suites": [],
           "passes": [
-            "538f89f9-8169-4fe2-a00f-49573f4434d0",
-            "ce42a2e5-6848-4520-9c63-31752a59101e",
-            "dfe7fd89-9b9d-407e-932a-77a2a6f18a7d",
-            "b9577552-25e4-4a6a-97b0-8c144432ee24",
-            "dfc33a8e-65bb-405a-ad1e-b3b1e7472ff7"
+            "dd50c07c-2a44-4b82-b466-6032fff7e2af",
+            "9a7d94a1-68f5-4631-aa4a-1606dadb7610",
+            "0eec20ea-c7fb-416e-b388-dc387b7e439e",
+            "0726d2b6-6fd9-4c46-866f-0d9d77648170",
+            "86cf7f9e-90a1-4170-97cd-1437f0ddac41"
           ],
           "failures": [],
           "pending": [],
           "skipped": [],
-          "duration": 21612,
+          "duration": 17166,
           "root": false,
           "rootEmpty": false,
           "_timeout": 2000
@@ -152,7 +152,7 @@
       "_timeout": 2000
     },
     {
-      "uuid": "3f34be75-3011-4e47-8dcb-510284993253",
+      "uuid": "682ce44f-2c3b-40fe-a64f-b8835560a792",
       "title": "",
       "fullFile": "cypress/e2e/checkout/checkout.cy.js",
       "file": "cypress/e2e/checkout/checkout.cy.js",
@@ -161,7 +161,7 @@
       "tests": [],
       "suites": [
         {
-          "uuid": "98267d8e-4c44-4020-bdd5-ca97adde0cc1",
+          "uuid": "70a88619-9eb4-4b4c-bb47-c66467497e0b",
           "title": "Checkout and Order Tests",
           "fullFile": "",
           "file": "",
@@ -172,7 +172,7 @@
               "title": "TC014: Should place order registering during checkout",
               "fullTitle": "Checkout and Order Tests TC014: Should place order registering during checkout",
               "timedOut": null,
-              "duration": 23616,
+              "duration": 19994,
               "state": "passed",
               "speed": "slow",
               "pass": true,
@@ -181,8 +181,8 @@
               "context": null,
               "code": "// Step 1-3: Home page\nhomePage.verifyTextPresent('Full-Fledged practice website for Automation Engineers');\n// Step 4-5: Add product and view cart\ncy.addProductAndViewCart();\n// Step 6: Click Proceed to Checkout\ncy.contains('Proceed To Checkout').click();\n// Step 7: Verify modal and click Register/Login\ncy.contains('Register / Login account to proceed on checkout').should('be.visible');\ncy.contains('a', 'Register / Login').click();\n// Step 8-11: Register new user\ncy.fixture('users.json').then(userData => {\n  const uniqueEmail = `checkout.${Date.now()}@test.com`;\n  const testUser = _objectSpread(_objectSpread({}, userData.newUser), {}, {\n    email: uniqueEmail\n  });\n  loginPage.signup(testUser.name, testUser.email);\n  cy.contains('Enter Account Information').should('be.visible');\n  cy.fillSignupForm(testUser);\n  cy.fillAddressForm(userData.address);\n  cy.get('button[data-qa=\"create-account\"]').click();\n  cy.contains('Account Created!', {\n    timeout: 10000\n  }).should('be.visible');\n  cy.get('a[data-qa=\"continue-button\"]').click();\n  cy.contains('Logged in as').should('be.visible');\n  // Step 12: Click Cart again\n  homePage.clickCart();\n  // Step 13-19: Proceed to checkout and complete order\n  cy.contains('Proceed To Checkout').click();\n  cy.completeCheckout('Please deliver carefully');\n  // Cleanup\n  cy.deleteAccount();\n});",
               "err": {},
-              "uuid": "85995721-0500-49ef-a63c-3d53f96d5685",
-              "parentUUID": "98267d8e-4c44-4020-bdd5-ca97adde0cc1",
+              "uuid": "1d215eff-cf70-4ecc-a34f-000761ceb6d2",
+              "parentUUID": "70a88619-9eb4-4b4c-bb47-c66467497e0b",
               "isHook": false,
               "skipped": false
             },
@@ -190,7 +190,7 @@
               "title": "TC016: Should place order with pre-login",
               "fullTitle": "Checkout and Order Tests TC016: Should place order with pre-login",
               "timedOut": null,
-              "duration": 21832,
+              "duration": 17976,
               "state": "passed",
               "speed": "slow",
               "pass": true,
@@ -199,8 +199,8 @@
               "context": null,
               "code": "// Step 1-3: Home page\nhomePage.verifyTextPresent('Full-Fledged practice website for Automation Engineers');\ncy.fixture('users.json').then(userData => {\n  const uniqueEmail = `prelogin.${Date.now()}@test.com`;\n  const testUser = _objectSpread(_objectSpread({}, userData.newUser), {}, {\n    email: uniqueEmail\n  });\n  // Step 4-10: Register and create account\n  cy.registerNewUser(testUser, userData.address);\n  // Step 11-12: Add product and view cart\n  cy.addProductAndViewCart();\n  // Step 13-19: Proceed to checkout and complete order\n  cy.contains('Proceed To Checkout').click();\n  cy.completeCheckout('Test order with pre-login');\n  // Step 20: Delete account\n  cy.deleteAccount();\n});",
               "err": {},
-              "uuid": "3da307d0-dfae-4d95-8565-11e561e791f1",
-              "parentUUID": "98267d8e-4c44-4020-bdd5-ca97adde0cc1",
+              "uuid": "e480c416-03b7-4984-a3e2-e60cd4f89c67",
+              "parentUUID": "70a88619-9eb4-4b4c-bb47-c66467497e0b",
               "isHook": false,
               "skipped": false
             },
@@ -208,7 +208,7 @@
               "title": "TC023: Should verify address details in checkout",
               "fullTitle": "Checkout and Order Tests TC023: Should verify address details in checkout",
               "timedOut": null,
-              "duration": 18284,
+              "duration": 14187,
               "state": "passed",
               "speed": "slow",
               "pass": true,
@@ -217,8 +217,8 @@
               "context": null,
               "code": "// Step 1-3: Home page\nhomePage.verifyTextPresent('Full-Fledged practice website for Automation Engineers');\ncy.fixture('users.json').then(userData => {\n  const uniqueEmail = `address.${Date.now()}@test.com`;\n  const testUser = _objectSpread(_objectSpread({}, userData.newUser), {}, {\n    email: uniqueEmail\n  });\n  // Step 4-11: Register and fill account details\n  cy.registerNewUser(testUser, userData.address);\n  // Step 12-13: Add product and view cart\n  cy.addProductAndViewCart();\n  // Step 14: Click Proceed to Checkout\n  cy.contains('Proceed To Checkout').click();\n  // Step 15-17: Verify delivery and billing addresses\n  cy.get('#address_delivery').should('be.visible').within(() => {\n    cy.contains(userData.address.firstName).should('be.visible');\n    cy.contains(userData.address.address).should('be.visible');\n    cy.contains(userData.address.city).should('be.visible');\n  });\n  cy.get('#address_invoice').should('be.visible').within(() => {\n    cy.contains(userData.address.firstName).should('be.visible');\n    cy.contains(userData.address.address).should('be.visible');\n    cy.contains(userData.address.city).should('be.visible');\n  });\n  // Cleanup\n  cy.deleteAccount();\n});",
               "err": {},
-              "uuid": "5e2e668d-adf7-469f-b9d2-e8f7387db394",
-              "parentUUID": "98267d8e-4c44-4020-bdd5-ca97adde0cc1",
+              "uuid": "9a08911a-5253-42f0-8b0f-ce0c9ccdfe72",
+              "parentUUID": "70a88619-9eb4-4b4c-bb47-c66467497e0b",
               "isHook": false,
               "skipped": false
             },
@@ -226,7 +226,7 @@
               "title": "TC024: Should download invoice after purchase",
               "fullTitle": "Checkout and Order Tests TC024: Should download invoice after purchase",
               "timedOut": null,
-              "duration": 22740,
+              "duration": 20639,
               "state": "passed",
               "speed": "slow",
               "pass": true,
@@ -235,23 +235,23 @@
               "context": null,
               "code": "// Step 1-3: Home page\nhomePage.verifyTextPresent('Full-Fledged practice website for Automation Engineers');\ncy.fixture('users.json').then(userData => {\n  const uniqueEmail = `invoice.${Date.now()}@test.com`;\n  const testUser = _objectSpread(_objectSpread({}, userData.newUser), {}, {\n    email: uniqueEmail\n  });\n  // Step 4-5: Add product and view cart\n  cy.addProductAndViewCart();\n  // Step 6: Click Proceed to Checkout\n  cy.contains('Proceed To Checkout').click();\n  // Step 7: Click Register/Login\n  cy.contains('a', 'Register / Login').click();\n  // Step 8-13: Register new user\n  loginPage.signup(testUser.name, testUser.email);\n  cy.contains('Enter Account Information').should('be.visible');\n  cy.fillSignupForm(testUser);\n  cy.fillAddressForm(userData.address);\n  cy.get('button[data-qa=\"create-account\"]').click();\n  cy.contains('Account Created!', {\n    timeout: 10000\n  }).should('be.visible');\n  cy.get('a[data-qa=\"continue-button\"]').click();\n  cy.contains('Logged in as').should('be.visible');\n  // Step 14: Click Cart\n  homePage.clickCart();\n  // Step 15-21: Proceed to checkout and complete order\n  cy.contains('Proceed To Checkout').click();\n  cy.completeCheckout('Invoice test order');\n  // Step 22: Verify reached payment done page\n  cy.url().should('include', '/payment_done');\n  // Step 23-24: Download and verify invoice\n  cy.downloadInvoice();\n  // Step 25: Delete account\n  cy.deleteAccount();\n});",
               "err": {},
-              "uuid": "ec6d45e1-cd08-4fdd-9d83-d2e769a9b3c0",
-              "parentUUID": "98267d8e-4c44-4020-bdd5-ca97adde0cc1",
+              "uuid": "2abb55a5-c830-4d5a-a75f-fa8fa3e259aa",
+              "parentUUID": "70a88619-9eb4-4b4c-bb47-c66467497e0b",
               "isHook": false,
               "skipped": false
             }
           ],
           "suites": [],
           "passes": [
-            "85995721-0500-49ef-a63c-3d53f96d5685",
-            "3da307d0-dfae-4d95-8565-11e561e791f1",
-            "5e2e668d-adf7-469f-b9d2-e8f7387db394",
-            "ec6d45e1-cd08-4fdd-9d83-d2e769a9b3c0"
+            "1d215eff-cf70-4ecc-a34f-000761ceb6d2",
+            "e480c416-03b7-4984-a3e2-e60cd4f89c67",
+            "9a08911a-5253-42f0-8b0f-ce0c9ccdfe72",
+            "2abb55a5-c830-4d5a-a75f-fa8fa3e259aa"
           ],
           "failures": [],
           "pending": [],
           "skipped": [],
-          "duration": 86472,
+          "duration": 72796,
           "root": false,
           "rootEmpty": false,
           "_timeout": 2000
@@ -267,7 +267,7 @@
       "_timeout": 2000
     },
     {
-      "uuid": "52d03c2f-0b84-4768-9595-2020f18a3b98",
+      "uuid": "6d69dfa3-a91c-4663-92ae-189cafd95608",
       "title": "",
       "fullFile": "cypress/e2e/other/contact.cy.js",
       "file": "cypress/e2e/other/contact.cy.js",
@@ -276,7 +276,7 @@
       "tests": [],
       "suites": [
         {
-          "uuid": "753772f2-1f5c-4b97-96ed-dd29334bc8de",
+          "uuid": "1aa9871d-704a-45d8-bd89-a9704257674d",
           "title": "Contact Us Tests",
           "fullFile": "",
           "file": "",
@@ -287,7 +287,7 @@
               "title": "TC006: Should submit contact us form",
               "fullTitle": "Contact Us Tests TC006: Should submit contact us form",
               "timedOut": null,
-              "duration": 6696,
+              "duration": 5468,
               "state": "passed",
               "speed": "medium",
               "pass": true,
@@ -296,20 +296,20 @@
               "context": null,
               "code": "// Step 1-3: Home page\nhomePage.verifyTextPresent('Full-Fledged practice website for Automation Engineers');\n// Step 4: Click Contact Us\nhomePage.clickContactUs();\n// Step 5: Verify GET IN TOUCH\ncy.contains('Get In Touch').should('be.visible');\n// Step 6: Enter contact details\ncy.get('input[data-qa=\"name\"]').type('Test User');\ncy.get('input[data-qa=\"email\"]').type(`contact.${Date.now()}@test.com`);\ncy.get('input[data-qa=\"subject\"]').type('Test Subject');\ncy.get('textarea[data-qa=\"message\"]').type('This is a test message for automation');\n// Step 7: Upload file (criar arquivo inline)\nconst fileContent = 'Test file content for contact form';\nconst fileName = 'test-contact.txt';\ncy.get('input[name=\"upload_file\"]').then(input => {\n  const blob = new Blob([fileContent], {\n    type: 'text/plain'\n  });\n  const file = new File([blob], fileName, {\n    type: 'text/plain'\n  });\n  const dataTransfer = new DataTransfer();\n  dataTransfer.items.add(file);\n  input[0].files = dataTransfer.files;\n  input[0].dispatchEvent(new Event('change', {\n    bubbles: true\n  }));\n});\n// Step 8: Click Submit\ncy.get('input[data-qa=\"submit-button\"]').click();\n// Step 9: Handle alert\ncy.on('window:alert', text => {\n  expect(text).to.contains('OK');\n  return true;\n});\n// Step 10: Verify success message\ncy.contains('Success! Your details have been submitted successfully.', {\n  timeout: 10000\n}).should('be.visible');\n// Step 11: Click Home\ncy.get('.btn.btn-success').contains('Home').click();\n// Step 12: Verify home page\ncy.url().should('eq', Cypress.config().baseUrl + '/');\nhomePage.verifyTextPresent('Full-Fledged practice website for Automation Engineers');",
               "err": {},
-              "uuid": "35078ee7-e960-4888-b574-b06cc05a19a1",
-              "parentUUID": "753772f2-1f5c-4b97-96ed-dd29334bc8de",
+              "uuid": "199a8196-7030-4ecd-b806-19ce8fc46e3d",
+              "parentUUID": "1aa9871d-704a-45d8-bd89-a9704257674d",
               "isHook": false,
               "skipped": false
             }
           ],
           "suites": [],
           "passes": [
-            "35078ee7-e960-4888-b574-b06cc05a19a1"
+            "199a8196-7030-4ecd-b806-19ce8fc46e3d"
           ],
           "failures": [],
           "pending": [],
           "skipped": [],
-          "duration": 6696,
+          "duration": 5468,
           "root": false,
           "rootEmpty": false,
           "_timeout": 2000
@@ -325,7 +325,7 @@
       "_timeout": 2000
     },
     {
-      "uuid": "1476853d-9c65-40ac-8806-1fba279d23e7",
+      "uuid": "795b18a8-0c88-45b8-b3d6-b32f78d441bc",
       "title": "",
       "fullFile": "cypress/e2e/auth/login.cy.js",
       "file": "cypress/e2e/auth/login.cy.js",
@@ -334,7 +334,7 @@
       "tests": [],
       "suites": [
         {
-          "uuid": "8d14eae8-4c88-4c08-a2e6-556326fe9c5f",
+          "uuid": "dc7ef2be-939a-431f-9aa0-3ce1ea6a9105",
           "title": "User Login Tests",
           "fullFile": "",
           "file": "",
@@ -345,7 +345,7 @@
               "title": "TC002: Should login with correct credentials",
               "fullTitle": "User Login Tests TC002: Should login with correct credentials",
               "timedOut": null,
-              "duration": 22006,
+              "duration": 20426,
               "state": "passed",
               "speed": "slow",
               "pass": true,
@@ -354,8 +354,8 @@
               "context": null,
               "code": "// Step 1-3: Navigate to home\nhomePage.verifyTextPresent('Full-Fledged practice website for Automation Engineers');\ncy.fixture('users.json').then(userData => {\n  const uniqueEmail = `testlogin.${Date.now()}@test.com`;\n  const testUser = _objectSpread(_objectSpread({}, userData.newUser), {}, {\n    email: uniqueEmail\n  });\n  // Criar conta\n  cy.registerNewUser(testUser, userData.address);\n  // Fazer logout\n  homePage.logout();\n  // Fazer login com as credenciais corretas\n  // Step 4-5: Click Signup/Login e verificar página\n  homePage.clickSignupLogin();\n  loginPage.verifyLoginPageVisible();\n  // Step 6: Enter correct credentials\n  loginPage.login(testUser.email, testUser.password);\n  // Step 8: Verify logged in\n  cy.contains('Logged in as', {\n    timeout: 10000\n  }).should('be.visible');\n  // Step 9-10: Delete account\n  cy.deleteAccount();\n});",
               "err": {},
-              "uuid": "31a6d5cc-4afe-40c8-9b04-0ecdcb73d6d0",
-              "parentUUID": "8d14eae8-4c88-4c08-a2e6-556326fe9c5f",
+              "uuid": "f7fbdd7c-29bf-431f-836a-f39dfee2ad7b",
+              "parentUUID": "dc7ef2be-939a-431f-9aa0-3ce1ea6a9105",
               "isHook": false,
               "skipped": false
             },
@@ -363,7 +363,7 @@
               "title": "TC003: Should show error with incorrect credentials",
               "fullTitle": "User Login Tests TC003: Should show error with incorrect credentials",
               "timedOut": null,
-              "duration": 4991,
+              "duration": 4327,
               "state": "passed",
               "speed": "fast",
               "pass": true,
@@ -372,8 +372,8 @@
               "context": null,
               "code": "// Step 1-3: Navigate to home\nhomePage.verifyTextPresent('Full-Fledged practice website for Automation Engineers');\ncy.fixture('users.json').then(userData => {\n  // Step 4: Click Signup/Login\n  homePage.clickSignupLogin();\n  // Step 5: Verify login page\n  loginPage.verifyLoginPageVisible();\n  // Step 6: Enter incorrect credentials\n  loginPage.login(userData.invalidUser.email, userData.invalidUser.password);\n  // Step 8: Verify error message\n  cy.wait(1000);\n  loginPage.verifyLoginError();\n});",
               "err": {},
-              "uuid": "17a92ff0-96be-4faf-a393-026496561c32",
-              "parentUUID": "8d14eae8-4c88-4c08-a2e6-556326fe9c5f",
+              "uuid": "ef29ddbe-15a0-4e7f-8771-f51b09269381",
+              "parentUUID": "dc7ef2be-939a-431f-9aa0-3ce1ea6a9105",
               "isHook": false,
               "skipped": false
             },
@@ -381,7 +381,7 @@
               "title": "TC004: Should logout user successfully",
               "fullTitle": "User Login Tests TC004: Should logout user successfully",
               "timedOut": null,
-              "duration": 13607,
+              "duration": 13042,
               "state": "passed",
               "speed": "slow",
               "pass": true,
@@ -390,22 +390,22 @@
               "context": null,
               "code": "// Step 1-3: Navigate to home\nhomePage.verifyTextPresent('Full-Fledged practice website for Automation Engineers');\ncy.fixture('users.json').then(userData => {\n  const uniqueEmail = `testlogout.${Date.now()}@test.com`;\n  const testUser = _objectSpread(_objectSpread({}, userData.newUser), {}, {\n    email: uniqueEmail\n  });\n  // Criar conta\n  cy.registerNewUser(testUser, userData.address);\n  // Step 8: Verify logged in (já verificado no registerNewUser)\n  // Step 9: Click Logout\n  homePage.logout();\n  // Step 10: Verify redirected to login\n  cy.url().should('include', '/login');\n  loginPage.verifyLoginPageVisible();\n});",
               "err": {},
-              "uuid": "a54a0310-5ffd-4acc-be10-88781d5cea36",
-              "parentUUID": "8d14eae8-4c88-4c08-a2e6-556326fe9c5f",
+              "uuid": "08725e98-9112-4452-af7e-93400ae30f8a",
+              "parentUUID": "dc7ef2be-939a-431f-9aa0-3ce1ea6a9105",
               "isHook": false,
               "skipped": false
             }
           ],
           "suites": [],
           "passes": [
-            "31a6d5cc-4afe-40c8-9b04-0ecdcb73d6d0",
-            "17a92ff0-96be-4faf-a393-026496561c32",
-            "a54a0310-5ffd-4acc-be10-88781d5cea36"
+            "f7fbdd7c-29bf-431f-836a-f39dfee2ad7b",
+            "ef29ddbe-15a0-4e7f-8771-f51b09269381",
+            "08725e98-9112-4452-af7e-93400ae30f8a"
           ],
           "failures": [],
           "pending": [],
           "skipped": [],
-          "duration": 40604,
+          "duration": 37795,
           "root": false,
           "rootEmpty": false,
           "_timeout": 2000
@@ -421,7 +421,7 @@
       "_timeout": 2000
     },
     {
-      "uuid": "0620a8a8-1a6d-4329-9abc-d61386e7f7e3",
+      "uuid": "8a3ee5cd-d43f-44a5-8758-7aff7a4ea2c6",
       "title": "",
       "fullFile": "cypress/e2e/products/products.cy.js",
       "file": "cypress/e2e/products/products.cy.js",
@@ -430,7 +430,7 @@
       "tests": [],
       "suites": [
         {
-          "uuid": "b8c972a2-874a-4e1d-ba07-8a37bc0761a8",
+          "uuid": "c07c154e-4e5a-4d3e-bff5-da6d9192c03a",
           "title": "Products Tests",
           "fullFile": "",
           "file": "",
@@ -441,7 +441,7 @@
               "title": "TC007: Should navigate to Test Cases page",
               "fullTitle": "Products Tests TC007: Should navigate to Test Cases page",
               "timedOut": null,
-              "duration": 2611,
+              "duration": 2505,
               "state": "passed",
               "speed": "fast",
               "pass": true,
@@ -450,8 +450,8 @@
               "context": null,
               "code": "// Step 1-3: Home page\nhomePage.verifyTextPresent('Full-Fledged practice website for Automation Engineers');\n// Step 4: Click on Test Cases button\nhomePage.clickTestCases();\n// Step 5: Verify Test Cases page\ncy.contains('h2', 'Test Cases').should('be.visible');",
               "err": {},
-              "uuid": "5f07a74a-fdee-4fb9-aae1-f91613db494f",
-              "parentUUID": "b8c972a2-874a-4e1d-ba07-8a37bc0761a8",
+              "uuid": "fce443ff-a65e-4436-8d39-1584766eb6a5",
+              "parentUUID": "c07c154e-4e5a-4d3e-bff5-da6d9192c03a",
               "isHook": false,
               "skipped": false
             },
@@ -459,7 +459,7 @@
               "title": "TC008: Should view all products and product details",
               "fullTitle": "Products Tests TC008: Should view all products and product details",
               "timedOut": null,
-              "duration": 4043,
+              "duration": 3032,
               "state": "passed",
               "speed": "fast",
               "pass": true,
@@ -468,8 +468,8 @@
               "context": null,
               "code": "// Step 1-3: Home page\nhomePage.verifyTextPresent('Full-Fledged practice website for Automation Engineers');\n// Step 4: Click Products\nhomePage.clickProducts();\n// Step 5: Verify All Products page\nproductsPage.verifyAllProductsPage();\n// Step 6: Verify products list visible\ncy.get('.features_items').should('be.visible');\n// Step 7: Click View Product\nproductsPage.clickViewProductFirst();\n// Step 8: Verify on product detail page\ncy.url().should('include', '/product_details/');\n// Step 9: Verify product details visible\nproductsPage.verifyProductDetailsVisible();",
               "err": {},
-              "uuid": "f939fa6d-d894-4f0e-bc04-601e76dd8cd1",
-              "parentUUID": "b8c972a2-874a-4e1d-ba07-8a37bc0761a8",
+              "uuid": "118817e8-0cc5-422e-a112-bac48533c2bf",
+              "parentUUID": "c07c154e-4e5a-4d3e-bff5-da6d9192c03a",
               "isHook": false,
               "skipped": false
             },
@@ -477,7 +477,7 @@
               "title": "TC018: Should view category products",
               "fullTitle": "Products Tests TC018: Should view category products",
               "timedOut": null,
-              "duration": 3831,
+              "duration": 2873,
               "state": "passed",
               "speed": "fast",
               "pass": true,
@@ -486,8 +486,8 @@
               "context": null,
               "code": "// Step 1-3: Home page\nhomePage.verifyTextPresent('Full-Fledged practice website for Automation Engineers');\n// Step 2-3: Verify categories visible on left sidebar\nhomePage.clickProducts();\ncy.get('.left-sidebar').should('be.visible');\n// Step 4: Click on Women category\ncy.contains('Women').parent().parent().find('a').first().click();\n// Step 5: Click on a subcategory\ncy.get('.category-products').first().then($category => {\n  if ($category.length) {\n    cy.contains('a', 'Dress').click();\n  }\n});\n// Step 6: Verify category page with products\ncy.contains('Women').should('be.visible');",
               "err": {},
-              "uuid": "29327fce-a524-40f9-a63c-30a96dada172",
-              "parentUUID": "b8c972a2-874a-4e1d-ba07-8a37bc0761a8",
+              "uuid": "17d128f7-b143-45bd-8ad5-8fda4cb49de6",
+              "parentUUID": "c07c154e-4e5a-4d3e-bff5-da6d9192c03a",
               "isHook": false,
               "skipped": false
             },
@@ -495,7 +495,7 @@
               "title": "TC019: Should view and cart brand products",
               "fullTitle": "Products Tests TC019: Should view and cart brand products",
               "timedOut": null,
-              "duration": 4919,
+              "duration": 2996,
               "state": "passed",
               "speed": "fast",
               "pass": true,
@@ -504,23 +504,23 @@
               "context": null,
               "code": "// Step 1-3: Home page\nhomePage.verifyTextPresent('Full-Fledged practice website for Automation Engineers');\n// Step 3: Click Products\nhomePage.clickProducts();\n// Step 4: Verify brands visible\ncy.get('.brands_products').should('be.visible');\n// Step 5: Click on first brand\ncy.get('.brands_products a').first().click();\n// Step 6: Verify brand page and products visible\ncy.get('.features_items').should('be.visible');\n// Step 7: Click on another brand\ncy.get('.brands_products a').eq(1).click();\n// Step 8: Verify new brand page\ncy.get('.features_items').should('be.visible');",
               "err": {},
-              "uuid": "16807931-2262-4946-9c18-772242dd27ac",
-              "parentUUID": "b8c972a2-874a-4e1d-ba07-8a37bc0761a8",
+              "uuid": "9a1b0d40-9604-4796-8d9f-98ce9c40d505",
+              "parentUUID": "c07c154e-4e5a-4d3e-bff5-da6d9192c03a",
               "isHook": false,
               "skipped": false
             }
           ],
           "suites": [],
           "passes": [
-            "5f07a74a-fdee-4fb9-aae1-f91613db494f",
-            "f939fa6d-d894-4f0e-bc04-601e76dd8cd1",
-            "29327fce-a524-40f9-a63c-30a96dada172",
-            "16807931-2262-4946-9c18-772242dd27ac"
+            "fce443ff-a65e-4436-8d39-1584766eb6a5",
+            "118817e8-0cc5-422e-a112-bac48533c2bf",
+            "17d128f7-b143-45bd-8ad5-8fda4cb49de6",
+            "9a1b0d40-9604-4796-8d9f-98ce9c40d505"
           ],
           "failures": [],
           "pending": [],
           "skipped": [],
-          "duration": 15404,
+          "duration": 11406,
           "root": false,
           "rootEmpty": false,
           "_timeout": 2000
@@ -536,7 +536,7 @@
       "_timeout": 2000
     },
     {
-      "uuid": "ad505ee6-894c-4a41-8899-9ba95f9723dd",
+      "uuid": "6ccf5a3a-3c33-43a9-848f-e774959ee35f",
       "title": "",
       "fullFile": "cypress/e2e/auth/register.cy.js",
       "file": "cypress/e2e/auth/register.cy.js",
@@ -545,7 +545,7 @@
       "tests": [],
       "suites": [
         {
-          "uuid": "4750d2a3-cd15-4ed9-81dc-55e630a64707",
+          "uuid": "e8a20091-cd08-465b-a582-bafbcdffa53f",
           "title": "User Registration Tests",
           "fullFile": "",
           "file": "",
@@ -556,7 +556,7 @@
               "title": "TC001: Should register a new user successfully",
               "fullTitle": "User Registration Tests TC001: Should register a new user successfully",
               "timedOut": null,
-              "duration": 14662,
+              "duration": 17118,
               "state": "passed",
               "speed": "slow",
               "pass": true,
@@ -565,8 +565,8 @@
               "context": null,
               "code": "// Step 1-3: Navegação e verificação\nhomePage.verifyTextPresent('Full-Fledged practice website for Automation Engineers');\n// Step 4-16: Registro completo de usuário\ncy.fixture('users.json').then(userData => {\n  const uniqueEmail = `testuser.${Date.now()}@automationexercise.com`;\n  const testUser = _objectSpread(_objectSpread({}, userData.newUser), {}, {\n    email: uniqueEmail\n  });\n  cy.registerNewUser(testUser, userData.address);\n  // Step 17-18: Delete Account\n  cy.deleteAccount();\n});",
               "err": {},
-              "uuid": "327d6615-ff44-4198-9233-e7824ac7d33f",
-              "parentUUID": "4750d2a3-cd15-4ed9-81dc-55e630a64707",
+              "uuid": "5a0bee19-14fb-4cf4-b461-91101d75ba5c",
+              "parentUUID": "e8a20091-cd08-465b-a582-bafbcdffa53f",
               "isHook": false,
               "skipped": false
             },
@@ -574,7 +574,7 @@
               "title": "TC005: Should show error when registering with existing email",
               "fullTitle": "User Registration Tests TC005: Should show error when registering with existing email",
               "timedOut": null,
-              "duration": 19404,
+              "duration": 17873,
               "state": "passed",
               "speed": "slow",
               "pass": true,
@@ -583,21 +583,21 @@
               "context": null,
               "code": "// Step 1-3: Home page\nhomePage.verifyTextPresent('Full-Fledged practice website for Automation Engineers');\ncy.fixture('users.json').then(userData => {\n  const testEmail = `existing.${Date.now()}@test.com`;\n  const testUser = _objectSpread(_objectSpread({}, userData.newUser), {}, {\n    email: testEmail\n  });\n  // Criar conta primeiro\n  cy.registerNewUser(testUser, userData.address);\n  // Fazer logout\n  homePage.logout();\n  // Tentar registrar novamente com o mesmo email\n  // Step 4-5: Click Signup/Login e verificar página\n  homePage.clickSignupLogin();\n  loginPage.verifySignupPageVisible();\n  // Step 6: Enter name and existing email\n  loginPage.signup(userData.newUser.name, testEmail);\n  // Step 8: Verify error message\n  loginPage.verifyEmailExistsError();\n  // Cleanup: Login e deletar conta\n  cy.get('input[data-qa=\"login-email\"]').clear().type(testEmail);\n  cy.get('input[data-qa=\"login-password\"]').clear().type(userData.newUser.password);\n  cy.get('button[data-qa=\"login-button\"]').click();\n  cy.contains('Logged in as', {\n    timeout: 10000\n  }).should('be.visible');\n  cy.deleteAccount();\n});",
               "err": {},
-              "uuid": "57c8fc35-4cff-487b-bcb1-21c781702ed8",
-              "parentUUID": "4750d2a3-cd15-4ed9-81dc-55e630a64707",
+              "uuid": "059e8310-0aaf-4a81-8e5a-c3f7ecec17c4",
+              "parentUUID": "e8a20091-cd08-465b-a582-bafbcdffa53f",
               "isHook": false,
               "skipped": false
             }
           ],
           "suites": [],
           "passes": [
-            "327d6615-ff44-4198-9233-e7824ac7d33f",
-            "57c8fc35-4cff-487b-bcb1-21c781702ed8"
+            "5a0bee19-14fb-4cf4-b461-91101d75ba5c",
+            "059e8310-0aaf-4a81-8e5a-c3f7ecec17c4"
           ],
           "failures": [],
           "pending": [],
           "skipped": [],
-          "duration": 34066,
+          "duration": 34991,
           "root": false,
           "rootEmpty": false,
           "_timeout": 2000
@@ -613,7 +613,7 @@
       "_timeout": 2000
     },
     {
-      "uuid": "06d0e832-0547-4ceb-8fab-98ad43ce573c",
+      "uuid": "07d0c45e-26ab-4184-a79f-0dbfe6b0e02c",
       "title": "",
       "fullFile": "cypress/e2e/products/search.cy.js",
       "file": "cypress/e2e/products/search.cy.js",
@@ -622,7 +622,7 @@
       "tests": [],
       "suites": [
         {
-          "uuid": "532b88db-4322-4356-afbf-207dcfc4bee1",
+          "uuid": "b86c5ca0-98da-44c0-9342-515c6f08211d",
           "title": "Search and Review Tests",
           "fullFile": "",
           "file": "",
@@ -633,7 +633,7 @@
               "title": "TC009: Should search for products",
               "fullTitle": "Search and Review Tests TC009: Should search for products",
               "timedOut": null,
-              "duration": 4659,
+              "duration": 3571,
               "state": "passed",
               "speed": "fast",
               "pass": true,
@@ -642,8 +642,8 @@
               "context": null,
               "code": "// Step 1-3: Home page\nhomePage.verifyTextPresent('Full-Fledged practice website for Automation Engineers');\n// Step 4: Click Products\nhomePage.clickProducts();\n// Step 5: Verify All Products page\nproductsPage.verifyAllProductsPage();\n// Step 6: Search for product\nconst searchTerm = 'Tshirt';\nproductsPage.searchProduct(searchTerm);\n// Step 7: Verify searched products page\nproductsPage.verifySearchedProductsPage();\n// Step 8: Verify search results\ncy.get('.features_items').should('be.visible');\ncy.get('.single-products').should('have.length.greaterThan', 0);",
               "err": {},
-              "uuid": "8b77e6aa-fd70-4c20-8968-bcec61ce5e85",
-              "parentUUID": "532b88db-4322-4356-afbf-207dcfc4bee1",
+              "uuid": "118035f8-a174-4478-b0b5-2b30c3f1dc69",
+              "parentUUID": "b86c5ca0-98da-44c0-9342-515c6f08211d",
               "isHook": false,
               "skipped": false
             },
@@ -651,7 +651,7 @@
               "title": "TC021: Should add review on product",
               "fullTitle": "Search and Review Tests TC021: Should add review on product",
               "timedOut": null,
-              "duration": 6903,
+              "duration": 6137,
               "state": "passed",
               "speed": "medium",
               "pass": true,
@@ -660,21 +660,21 @@
               "context": null,
               "code": "// Step 1-3: Home page\nhomePage.verifyTextPresent('Full-Fledged practice website for Automation Engineers');\n// Step 3: Click Products\nhomePage.clickProducts();\n// Step 5: Click View Product\nproductsPage.clickViewProductFirst();\n// Step 6: Verify Write Your Review visible\ncy.contains('Write Your Review').should('be.visible');\n// Step 7: Enter review details\nconst reviewerName = 'Test Reviewer';\nconst reviewerEmail = `reviewer.${Date.now()}@test.com`;\nconst reviewText = 'This is an excellent product! Highly recommended for everyone.';\nproductsPage.addReview(reviewerName, reviewerEmail, reviewText);\n// Step 8: Submit review\ncy.wait(1000);\n// Step 9: Verify success message\nproductsPage.verifyReviewSuccess();",
               "err": {},
-              "uuid": "09c8d449-3938-4780-8fcd-a033ac9ad29d",
-              "parentUUID": "532b88db-4322-4356-afbf-207dcfc4bee1",
+              "uuid": "2b9cfd59-472a-4f4b-9ce6-6a69d7841a2e",
+              "parentUUID": "b86c5ca0-98da-44c0-9342-515c6f08211d",
               "isHook": false,
               "skipped": false
             }
           ],
           "suites": [],
           "passes": [
-            "8b77e6aa-fd70-4c20-8968-bcec61ce5e85",
-            "09c8d449-3938-4780-8fcd-a033ac9ad29d"
+            "118035f8-a174-4478-b0b5-2b30c3f1dc69",
+            "2b9cfd59-472a-4f4b-9ce6-6a69d7841a2e"
           ],
           "failures": [],
           "pending": [],
           "skipped": [],
-          "duration": 11562,
+          "duration": 9708,
           "root": false,
           "rootEmpty": false,
           "_timeout": 2000
@@ -690,7 +690,7 @@
       "_timeout": 2000
     },
     {
-      "uuid": "fdbcfb84-26cb-4ed6-baf1-077a9e42689c",
+      "uuid": "93997603-833c-4f05-a7cd-4d3fb814dfd1",
       "title": "",
       "fullFile": "cypress/e2e/other/ui.cy.js",
       "file": "cypress/e2e/other/ui.cy.js",
@@ -699,7 +699,7 @@
       "tests": [],
       "suites": [
         {
-          "uuid": "fdf6a11d-6b6c-47a3-bc21-5fc37b14365b",
+          "uuid": "d3ceea04-526d-4f60-857c-987661719bf9",
           "title": "UI and General Functionality Tests",
           "fullFile": "",
           "file": "",
@@ -710,7 +710,7 @@
               "title": "TC010: Should verify subscription in home page",
               "fullTitle": "UI and General Functionality Tests TC010: Should verify subscription in home page",
               "timedOut": null,
-              "duration": 2822,
+              "duration": 2709,
               "state": "passed",
               "speed": "fast",
               "pass": true,
@@ -719,8 +719,8 @@
               "context": null,
               "code": "// Step 1-3: Navigate to home\nhomePage.visitHome();\nhomePage.verifyTextPresent('Full-Fledged practice website for Automation Engineers');\n// Step 4-5: Scroll and verify subscription\nhomePage.verifySubscriptionVisible();\n// Step 6-7: Enter email and subscribe\nconst email = `subscriber.${Date.now()}@test.com`;\nhomePage.subscribe(email);",
               "err": {},
-              "uuid": "42b5867f-6123-41d0-a898-03cd9611ed9c",
-              "parentUUID": "fdf6a11d-6b6c-47a3-bc21-5fc37b14365b",
+              "uuid": "c927c825-a51e-4b30-870f-7e42914a2abc",
+              "parentUUID": "d3ceea04-526d-4f60-857c-987661719bf9",
               "isHook": false,
               "skipped": false
             },
@@ -728,7 +728,7 @@
               "title": "TC011: Should verify subscription in cart page",
               "fullTitle": "UI and General Functionality Tests TC011: Should verify subscription in cart page",
               "timedOut": null,
-              "duration": 3720,
+              "duration": 3478,
               "state": "passed",
               "speed": "fast",
               "pass": true,
@@ -737,8 +737,8 @@
               "context": null,
               "code": "// Step 1-3: Navigate to home\nhomePage.visitHome();\nhomePage.verifyTextPresent('Full-Fledged practice website for Automation Engineers');\n// Step 4: Click Cart\nhomePage.clickCart();\n// Step 5-6: Scroll and verify subscription\ncartPage.scrollToBottom();\ncy.contains('Subscription').should('be.visible');\n// Step 7-8: Enter email and subscribe\nconst email = `subscriber.${Date.now()}@test.com`;\ncartPage.subscribe(email);",
               "err": {},
-              "uuid": "5dff35c7-1f0c-444e-aefb-fcda8e4b99b7",
-              "parentUUID": "fdf6a11d-6b6c-47a3-bc21-5fc37b14365b",
+              "uuid": "15c4d55a-563a-4f55-9abf-3089402b7565",
+              "parentUUID": "d3ceea04-526d-4f60-857c-987661719bf9",
               "isHook": false,
               "skipped": false
             },
@@ -746,7 +746,7 @@
               "title": "TC025: Should verify scroll up with arrow button",
               "fullTitle": "UI and General Functionality Tests TC025: Should verify scroll up with arrow button",
               "timedOut": null,
-              "duration": 3681,
+              "duration": 4604,
               "state": "passed",
               "speed": "fast",
               "pass": true,
@@ -755,8 +755,8 @@
               "context": null,
               "code": "// Step 1-3: Navigate to home\nhomePage.visitHome();\nhomePage.verifyTextPresent('Full-Fledged practice website for Automation Engineers');\n// Step 4: Scroll down to footer\nhomePage.scrollToBottom();\n// Step 5: Verify subscription visible\ncy.contains('Subscription').should('be.visible');\n// Step 6: Click arrow to scroll up\nhomePage.scrollUpWithArrow();\n// Step 7: Verify hero section visible\nhomePage.verifyHeroSectionVisible();",
               "err": {},
-              "uuid": "70735a6f-5fad-4ae5-b3cb-b6ebd29436dc",
-              "parentUUID": "fdf6a11d-6b6c-47a3-bc21-5fc37b14365b",
+              "uuid": "d83f7877-1e5f-40ad-a072-e0ce496b4b03",
+              "parentUUID": "d3ceea04-526d-4f60-857c-987661719bf9",
               "isHook": false,
               "skipped": false
             },
@@ -764,7 +764,7 @@
               "title": "TC026: Should verify scroll up without arrow button",
               "fullTitle": "UI and General Functionality Tests TC026: Should verify scroll up without arrow button",
               "timedOut": null,
-              "duration": 3160,
+              "duration": 2248,
               "state": "passed",
               "speed": "fast",
               "pass": true,
@@ -773,23 +773,23 @@
               "context": null,
               "code": "// Step 1-3: Navigate to home\nhomePage.visitHome();\nhomePage.verifyTextPresent('Full-Fledged practice website for Automation Engineers');\n// Step 4: Scroll down\nhomePage.scrollToBottom();\n// Step 5: Verify subscription visible\ncy.contains('Subscription').should('be.visible');\n// Step 6: Scroll up without arrow\nhomePage.scrollToTop();\n// Step 7: Verify hero section visible\nhomePage.verifyHeroSectionVisible();",
               "err": {},
-              "uuid": "877cdca4-49c9-4ad1-9fcd-b937343e7e5f",
-              "parentUUID": "fdf6a11d-6b6c-47a3-bc21-5fc37b14365b",
+              "uuid": "8f0bc373-a9b3-4f7a-960b-c60d3597cc3c",
+              "parentUUID": "d3ceea04-526d-4f60-857c-987661719bf9",
               "isHook": false,
               "skipped": false
             }
           ],
           "suites": [],
           "passes": [
-            "42b5867f-6123-41d0-a898-03cd9611ed9c",
-            "5dff35c7-1f0c-444e-aefb-fcda8e4b99b7",
-            "70735a6f-5fad-4ae5-b3cb-b6ebd29436dc",
-            "877cdca4-49c9-4ad1-9fcd-b937343e7e5f"
+            "c927c825-a51e-4b30-870f-7e42914a2abc",
+            "15c4d55a-563a-4f55-9abf-3089402b7565",
+            "d83f7877-1e5f-40ad-a072-e0ce496b4b03",
+            "8f0bc373-a9b3-4f7a-960b-c60d3597cc3c"
           ],
           "failures": [],
           "pending": [],
           "skipped": [],
-          "duration": 13383,
+          "duration": 13039,
           "root": false,
           "rootEmpty": false,
           "_timeout": 2000
@@ -805,7 +805,7 @@
       "_timeout": 2000
     },
     {
-      "uuid": "4d8cae5b-fc73-4470-b9da-d4328261b03b",
+      "uuid": "5141744c-fc24-4b55-9c2f-b02d6fe50e78",
       "title": "",
       "fullFile": "cypress/e2e/cart/cart.cy.js",
       "file": "cypress/e2e/cart/cart.cy.js",
@@ -814,7 +814,7 @@
       "tests": [],
       "suites": [
         {
-          "uuid": "64df42ed-a75b-4997-a3e2-2ac038a9223a",
+          "uuid": "ea811e22-4750-4205-9ba9-44ca8cabceed",
           "title": "Shopping Cart Tests",
           "fullFile": "",
           "file": "",
@@ -825,7 +825,7 @@
               "title": "TC012: Should add products to cart",
               "fullTitle": "Shopping Cart Tests TC012: Should add products to cart",
               "timedOut": null,
-              "duration": 4533,
+              "duration": 3643,
               "state": "passed",
               "speed": "fast",
               "pass": true,
@@ -834,8 +834,8 @@
               "context": null,
               "code": "// Step 1-3: Home page\nhomePage.verifyTextPresent('Full-Fledged practice website for Automation Engineers');\n// Step 4: Click Products\nhomePage.clickProducts();\n// Step 5: Hover and add first product\ncy.get('.single-products').first().within(() => {\n  cy.get('a.add-to-cart').first().click({\n    force: true\n  });\n});\n// Step 6: Continue Shopping\nhomePage.clickContinueShopping();\n// Step 7: Add second product\ncy.get('.single-products').eq(1).within(() => {\n  cy.get('a.add-to-cart').first().click({\n    force: true\n  });\n});\n// Step 8: View Cart\ncy.contains('View Cart').click();\n// Step 9-10: Verify both products in cart\ncartPage.verifyProductsInCart();",
               "err": {},
-              "uuid": "538f89f9-8169-4fe2-a00f-49573f4434d0",
-              "parentUUID": "64df42ed-a75b-4997-a3e2-2ac038a9223a",
+              "uuid": "dd50c07c-2a44-4b82-b466-6032fff7e2af",
+              "parentUUID": "ea811e22-4750-4205-9ba9-44ca8cabceed",
               "isHook": false,
               "skipped": false
             },
@@ -843,17 +843,17 @@
               "title": "TC013: Should verify product quantity in cart",
               "fullTitle": "Shopping Cart Tests TC013: Should verify product quantity in cart",
               "timedOut": null,
-              "duration": 5572,
+              "duration": 3514,
               "state": "passed",
-              "speed": "medium",
+              "speed": "fast",
               "pass": true,
               "fail": false,
               "pending": false,
               "context": null,
               "code": "// Step 1-3: Home page\nhomePage.verifyTextPresent('Full-Fledged practice website for Automation Engineers');\n// Step 4: View first product\nhomePage.clickProducts();\nproductsPage.clickViewProductFirst();\n// Step 6: Increase quantity\nproductsPage.setProductQuantity(4);\n// Step 7: Add to cart\nproductsPage.clickAddToCart();\n// Step 8: View cart\ncy.contains('View Cart').click();\n// Step 9: Verify quantity\ncy.get('.cart_quantity button').first().should('contain', '4');",
               "err": {},
-              "uuid": "ce42a2e5-6848-4520-9c63-31752a59101e",
-              "parentUUID": "64df42ed-a75b-4997-a3e2-2ac038a9223a",
+              "uuid": "9a7d94a1-68f5-4631-aa4a-1606dadb7610",
+              "parentUUID": "ea811e22-4750-4205-9ba9-44ca8cabceed",
               "isHook": false,
               "skipped": false
             },
@@ -861,7 +861,7 @@
               "title": "TC017: Should remove products from cart",
               "fullTitle": "Shopping Cart Tests TC017: Should remove products from cart",
               "timedOut": null,
-              "duration": 3727,
+              "duration": 3228,
               "state": "passed",
               "speed": "fast",
               "pass": true,
@@ -870,8 +870,8 @@
               "context": null,
               "code": "// Step 1-3: Home page\nhomePage.verifyTextPresent('Full-Fledged practice website for Automation Engineers');\n// Step 4: Add products\ncy.addProductsToCart(1);\n// Step 5: Click Cart\nhomePage.clickCart();\n// Step 6: Verify cart displayed\ncartPage.verifyProductsInCart();\n// Step 7: Remove product\ncartPage.removeProductByIndex(0);\n// Step 8: Verify product removed\ncy.wait(1000);\ncartPage.verifyCartEmpty();",
               "err": {},
-              "uuid": "dfe7fd89-9b9d-407e-932a-77a2a6f18a7d",
-              "parentUUID": "64df42ed-a75b-4997-a3e2-2ac038a9223a",
+              "uuid": "0eec20ea-c7fb-416e-b388-dc387b7e439e",
+              "parentUUID": "ea811e22-4750-4205-9ba9-44ca8cabceed",
               "isHook": false,
               "skipped": false
             },
@@ -879,7 +879,7 @@
               "title": "TC020: Should search products and verify cart after login",
               "fullTitle": "Shopping Cart Tests TC020: Should search products and verify cart after login",
               "timedOut": null,
-              "duration": 4842,
+              "duration": 3692,
               "state": "passed",
               "speed": "fast",
               "pass": true,
@@ -888,8 +888,8 @@
               "context": null,
               "code": "// Step 2-3: Home page\nhomePage.verifyTextPresent('Full-Fledged practice website for Automation Engineers');\n// Step 3: Click Products\nhomePage.clickProducts();\n// Step 5-6: Search product\nproductsPage.searchProduct('Tshirt');\n// Step 7: Verify search results\nproductsPage.verifySearchedProductsPage();\n// Step 8: Add searched products to cart\ncy.get('.single-products').first().within(() => {\n  cy.get('a.add-to-cart').first().click({\n    force: true\n  });\n});\n// Step 9: Go to cart\ncy.contains('View Cart').click();\n// Step 10-12: Verify products in cart\ncy.get('.cart_info').should('be.visible');",
               "err": {},
-              "uuid": "b9577552-25e4-4a6a-97b0-8c144432ee24",
-              "parentUUID": "64df42ed-a75b-4997-a3e2-2ac038a9223a",
+              "uuid": "0726d2b6-6fd9-4c46-866f-0d9d77648170",
+              "parentUUID": "ea811e22-4750-4205-9ba9-44ca8cabceed",
               "isHook": false,
               "skipped": false
             },
@@ -897,7 +897,7 @@
               "title": "TC022: Should add to cart from recommended items",
               "fullTitle": "Shopping Cart Tests TC022: Should add to cart from recommended items",
               "timedOut": null,
-              "duration": 2938,
+              "duration": 3089,
               "state": "passed",
               "speed": "fast",
               "pass": true,
@@ -906,24 +906,24 @@
               "context": null,
               "code": "// Step 1-3: Home page\nhomePage.verifyTextPresent('Full-Fledged practice website for Automation Engineers');\n// Step 3-4: Scroll to recommended items\nhomePage.scrollToBottom();\ncy.contains('recommended items').should('be.visible');\n// Step 5: Add to cart from recommended\ncy.get('.recommended_items').within(() => {\n  cy.get('a.add-to-cart').first().click({\n    force: true\n  });\n});\n// Step 6: View Cart\ncy.contains('View Cart').click();\n// Step 7: Verify product in cart\ncartPage.verifyProductsInCart();",
               "err": {},
-              "uuid": "dfc33a8e-65bb-405a-ad1e-b3b1e7472ff7",
-              "parentUUID": "64df42ed-a75b-4997-a3e2-2ac038a9223a",
+              "uuid": "86cf7f9e-90a1-4170-97cd-1437f0ddac41",
+              "parentUUID": "ea811e22-4750-4205-9ba9-44ca8cabceed",
               "isHook": false,
               "skipped": false
             }
           ],
           "suites": [],
           "passes": [
-            "538f89f9-8169-4fe2-a00f-49573f4434d0",
-            "ce42a2e5-6848-4520-9c63-31752a59101e",
-            "dfe7fd89-9b9d-407e-932a-77a2a6f18a7d",
-            "b9577552-25e4-4a6a-97b0-8c144432ee24",
-            "dfc33a8e-65bb-405a-ad1e-b3b1e7472ff7"
+            "dd50c07c-2a44-4b82-b466-6032fff7e2af",
+            "9a7d94a1-68f5-4631-aa4a-1606dadb7610",
+            "0eec20ea-c7fb-416e-b388-dc387b7e439e",
+            "0726d2b6-6fd9-4c46-866f-0d9d77648170",
+            "86cf7f9e-90a1-4170-97cd-1437f0ddac41"
           ],
           "failures": [],
           "pending": [],
           "skipped": [],
-          "duration": 21612,
+          "duration": 17166,
           "root": false,
           "rootEmpty": false,
           "_timeout": 2000
@@ -939,7 +939,7 @@
       "_timeout": 2000
     },
     {
-      "uuid": "3f34be75-3011-4e47-8dcb-510284993253",
+      "uuid": "682ce44f-2c3b-40fe-a64f-b8835560a792",
       "title": "",
       "fullFile": "cypress/e2e/checkout/checkout.cy.js",
       "file": "cypress/e2e/checkout/checkout.cy.js",
@@ -948,7 +948,7 @@
       "tests": [],
       "suites": [
         {
-          "uuid": "98267d8e-4c44-4020-bdd5-ca97adde0cc1",
+          "uuid": "70a88619-9eb4-4b4c-bb47-c66467497e0b",
           "title": "Checkout and Order Tests",
           "fullFile": "",
           "file": "",
@@ -959,7 +959,7 @@
               "title": "TC014: Should place order registering during checkout",
               "fullTitle": "Checkout and Order Tests TC014: Should place order registering during checkout",
               "timedOut": null,
-              "duration": 23616,
+              "duration": 19994,
               "state": "passed",
               "speed": "slow",
               "pass": true,
@@ -968,8 +968,8 @@
               "context": null,
               "code": "// Step 1-3: Home page\nhomePage.verifyTextPresent('Full-Fledged practice website for Automation Engineers');\n// Step 4-5: Add product and view cart\ncy.addProductAndViewCart();\n// Step 6: Click Proceed to Checkout\ncy.contains('Proceed To Checkout').click();\n// Step 7: Verify modal and click Register/Login\ncy.contains('Register / Login account to proceed on checkout').should('be.visible');\ncy.contains('a', 'Register / Login').click();\n// Step 8-11: Register new user\ncy.fixture('users.json').then(userData => {\n  const uniqueEmail = `checkout.${Date.now()}@test.com`;\n  const testUser = _objectSpread(_objectSpread({}, userData.newUser), {}, {\n    email: uniqueEmail\n  });\n  loginPage.signup(testUser.name, testUser.email);\n  cy.contains('Enter Account Information').should('be.visible');\n  cy.fillSignupForm(testUser);\n  cy.fillAddressForm(userData.address);\n  cy.get('button[data-qa=\"create-account\"]').click();\n  cy.contains('Account Created!', {\n    timeout: 10000\n  }).should('be.visible');\n  cy.get('a[data-qa=\"continue-button\"]').click();\n  cy.contains('Logged in as').should('be.visible');\n  // Step 12: Click Cart again\n  homePage.clickCart();\n  // Step 13-19: Proceed to checkout and complete order\n  cy.contains('Proceed To Checkout').click();\n  cy.completeCheckout('Please deliver carefully');\n  // Cleanup\n  cy.deleteAccount();\n});",
               "err": {},
-              "uuid": "85995721-0500-49ef-a63c-3d53f96d5685",
-              "parentUUID": "98267d8e-4c44-4020-bdd5-ca97adde0cc1",
+              "uuid": "1d215eff-cf70-4ecc-a34f-000761ceb6d2",
+              "parentUUID": "70a88619-9eb4-4b4c-bb47-c66467497e0b",
               "isHook": false,
               "skipped": false
             },
@@ -977,7 +977,7 @@
               "title": "TC016: Should place order with pre-login",
               "fullTitle": "Checkout and Order Tests TC016: Should place order with pre-login",
               "timedOut": null,
-              "duration": 21832,
+              "duration": 17976,
               "state": "passed",
               "speed": "slow",
               "pass": true,
@@ -986,8 +986,8 @@
               "context": null,
               "code": "// Step 1-3: Home page\nhomePage.verifyTextPresent('Full-Fledged practice website for Automation Engineers');\ncy.fixture('users.json').then(userData => {\n  const uniqueEmail = `prelogin.${Date.now()}@test.com`;\n  const testUser = _objectSpread(_objectSpread({}, userData.newUser), {}, {\n    email: uniqueEmail\n  });\n  // Step 4-10: Register and create account\n  cy.registerNewUser(testUser, userData.address);\n  // Step 11-12: Add product and view cart\n  cy.addProductAndViewCart();\n  // Step 13-19: Proceed to checkout and complete order\n  cy.contains('Proceed To Checkout').click();\n  cy.completeCheckout('Test order with pre-login');\n  // Step 20: Delete account\n  cy.deleteAccount();\n});",
               "err": {},
-              "uuid": "3da307d0-dfae-4d95-8565-11e561e791f1",
-              "parentUUID": "98267d8e-4c44-4020-bdd5-ca97adde0cc1",
+              "uuid": "e480c416-03b7-4984-a3e2-e60cd4f89c67",
+              "parentUUID": "70a88619-9eb4-4b4c-bb47-c66467497e0b",
               "isHook": false,
               "skipped": false
             },
@@ -995,7 +995,7 @@
               "title": "TC023: Should verify address details in checkout",
               "fullTitle": "Checkout and Order Tests TC023: Should verify address details in checkout",
               "timedOut": null,
-              "duration": 18284,
+              "duration": 14187,
               "state": "passed",
               "speed": "slow",
               "pass": true,
@@ -1004,8 +1004,8 @@
               "context": null,
               "code": "// Step 1-3: Home page\nhomePage.verifyTextPresent('Full-Fledged practice website for Automation Engineers');\ncy.fixture('users.json').then(userData => {\n  const uniqueEmail = `address.${Date.now()}@test.com`;\n  const testUser = _objectSpread(_objectSpread({}, userData.newUser), {}, {\n    email: uniqueEmail\n  });\n  // Step 4-11: Register and fill account details\n  cy.registerNewUser(testUser, userData.address);\n  // Step 12-13: Add product and view cart\n  cy.addProductAndViewCart();\n  // Step 14: Click Proceed to Checkout\n  cy.contains('Proceed To Checkout').click();\n  // Step 15-17: Verify delivery and billing addresses\n  cy.get('#address_delivery').should('be.visible').within(() => {\n    cy.contains(userData.address.firstName).should('be.visible');\n    cy.contains(userData.address.address).should('be.visible');\n    cy.contains(userData.address.city).should('be.visible');\n  });\n  cy.get('#address_invoice').should('be.visible').within(() => {\n    cy.contains(userData.address.firstName).should('be.visible');\n    cy.contains(userData.address.address).should('be.visible');\n    cy.contains(userData.address.city).should('be.visible');\n  });\n  // Cleanup\n  cy.deleteAccount();\n});",
               "err": {},
-              "uuid": "5e2e668d-adf7-469f-b9d2-e8f7387db394",
-              "parentUUID": "98267d8e-4c44-4020-bdd5-ca97adde0cc1",
+              "uuid": "9a08911a-5253-42f0-8b0f-ce0c9ccdfe72",
+              "parentUUID": "70a88619-9eb4-4b4c-bb47-c66467497e0b",
               "isHook": false,
               "skipped": false
             },
@@ -1013,7 +1013,7 @@
               "title": "TC024: Should download invoice after purchase",
               "fullTitle": "Checkout and Order Tests TC024: Should download invoice after purchase",
               "timedOut": null,
-              "duration": 22740,
+              "duration": 20639,
               "state": "passed",
               "speed": "slow",
               "pass": true,
@@ -1022,23 +1022,23 @@
               "context": null,
               "code": "// Step 1-3: Home page\nhomePage.verifyTextPresent('Full-Fledged practice website for Automation Engineers');\ncy.fixture('users.json').then(userData => {\n  const uniqueEmail = `invoice.${Date.now()}@test.com`;\n  const testUser = _objectSpread(_objectSpread({}, userData.newUser), {}, {\n    email: uniqueEmail\n  });\n  // Step 4-5: Add product and view cart\n  cy.addProductAndViewCart();\n  // Step 6: Click Proceed to Checkout\n  cy.contains('Proceed To Checkout').click();\n  // Step 7: Click Register/Login\n  cy.contains('a', 'Register / Login').click();\n  // Step 8-13: Register new user\n  loginPage.signup(testUser.name, testUser.email);\n  cy.contains('Enter Account Information').should('be.visible');\n  cy.fillSignupForm(testUser);\n  cy.fillAddressForm(userData.address);\n  cy.get('button[data-qa=\"create-account\"]').click();\n  cy.contains('Account Created!', {\n    timeout: 10000\n  }).should('be.visible');\n  cy.get('a[data-qa=\"continue-button\"]').click();\n  cy.contains('Logged in as').should('be.visible');\n  // Step 14: Click Cart\n  homePage.clickCart();\n  // Step 15-21: Proceed to checkout and complete order\n  cy.contains('Proceed To Checkout').click();\n  cy.completeCheckout('Invoice test order');\n  // Step 22: Verify reached payment done page\n  cy.url().should('include', '/payment_done');\n  // Step 23-24: Download and verify invoice\n  cy.downloadInvoice();\n  // Step 25: Delete account\n  cy.deleteAccount();\n});",
               "err": {},
-              "uuid": "ec6d45e1-cd08-4fdd-9d83-d2e769a9b3c0",
-              "parentUUID": "98267d8e-4c44-4020-bdd5-ca97adde0cc1",
+              "uuid": "2abb55a5-c830-4d5a-a75f-fa8fa3e259aa",
+              "parentUUID": "70a88619-9eb4-4b4c-bb47-c66467497e0b",
               "isHook": false,
               "skipped": false
             }
           ],
           "suites": [],
           "passes": [
-            "85995721-0500-49ef-a63c-3d53f96d5685",
-            "3da307d0-dfae-4d95-8565-11e561e791f1",
-            "5e2e668d-adf7-469f-b9d2-e8f7387db394",
-            "ec6d45e1-cd08-4fdd-9d83-d2e769a9b3c0"
+            "1d215eff-cf70-4ecc-a34f-000761ceb6d2",
+            "e480c416-03b7-4984-a3e2-e60cd4f89c67",
+            "9a08911a-5253-42f0-8b0f-ce0c9ccdfe72",
+            "2abb55a5-c830-4d5a-a75f-fa8fa3e259aa"
           ],
           "failures": [],
           "pending": [],
           "skipped": [],
-          "duration": 86472,
+          "duration": 72796,
           "root": false,
           "rootEmpty": false,
           "_timeout": 2000
@@ -1054,7 +1054,7 @@
       "_timeout": 2000
     },
     {
-      "uuid": "52d03c2f-0b84-4768-9595-2020f18a3b98",
+      "uuid": "6d69dfa3-a91c-4663-92ae-189cafd95608",
       "title": "",
       "fullFile": "cypress/e2e/other/contact.cy.js",
       "file": "cypress/e2e/other/contact.cy.js",
@@ -1063,7 +1063,7 @@
       "tests": [],
       "suites": [
         {
-          "uuid": "753772f2-1f5c-4b97-96ed-dd29334bc8de",
+          "uuid": "1aa9871d-704a-45d8-bd89-a9704257674d",
           "title": "Contact Us Tests",
           "fullFile": "",
           "file": "",
@@ -1074,7 +1074,7 @@
               "title": "TC006: Should submit contact us form",
               "fullTitle": "Contact Us Tests TC006: Should submit contact us form",
               "timedOut": null,
-              "duration": 6696,
+              "duration": 5468,
               "state": "passed",
               "speed": "medium",
               "pass": true,
@@ -1083,20 +1083,20 @@
               "context": null,
               "code": "// Step 1-3: Home page\nhomePage.verifyTextPresent('Full-Fledged practice website for Automation Engineers');\n// Step 4: Click Contact Us\nhomePage.clickContactUs();\n// Step 5: Verify GET IN TOUCH\ncy.contains('Get In Touch').should('be.visible');\n// Step 6: Enter contact details\ncy.get('input[data-qa=\"name\"]').type('Test User');\ncy.get('input[data-qa=\"email\"]').type(`contact.${Date.now()}@test.com`);\ncy.get('input[data-qa=\"subject\"]').type('Test Subject');\ncy.get('textarea[data-qa=\"message\"]').type('This is a test message for automation');\n// Step 7: Upload file (criar arquivo inline)\nconst fileContent = 'Test file content for contact form';\nconst fileName = 'test-contact.txt';\ncy.get('input[name=\"upload_file\"]').then(input => {\n  const blob = new Blob([fileContent], {\n    type: 'text/plain'\n  });\n  const file = new File([blob], fileName, {\n    type: 'text/plain'\n  });\n  const dataTransfer = new DataTransfer();\n  dataTransfer.items.add(file);\n  input[0].files = dataTransfer.files;\n  input[0].dispatchEvent(new Event('change', {\n    bubbles: true\n  }));\n});\n// Step 8: Click Submit\ncy.get('input[data-qa=\"submit-button\"]').click();\n// Step 9: Handle alert\ncy.on('window:alert', text => {\n  expect(text).to.contains('OK');\n  return true;\n});\n// Step 10: Verify success message\ncy.contains('Success! Your details have been submitted successfully.', {\n  timeout: 10000\n}).should('be.visible');\n// Step 11: Click Home\ncy.get('.btn.btn-success').contains('Home').click();\n// Step 12: Verify home page\ncy.url().should('eq', Cypress.config().baseUrl + '/');\nhomePage.verifyTextPresent('Full-Fledged practice website for Automation Engineers');",
               "err": {},
-              "uuid": "35078ee7-e960-4888-b574-b06cc05a19a1",
-              "parentUUID": "753772f2-1f5c-4b97-96ed-dd29334bc8de",
+              "uuid": "199a8196-7030-4ecd-b806-19ce8fc46e3d",
+              "parentUUID": "1aa9871d-704a-45d8-bd89-a9704257674d",
               "isHook": false,
               "skipped": false
             }
           ],
           "suites": [],
           "passes": [
-            "35078ee7-e960-4888-b574-b06cc05a19a1"
+            "199a8196-7030-4ecd-b806-19ce8fc46e3d"
           ],
           "failures": [],
           "pending": [],
           "skipped": [],
-          "duration": 6696,
+          "duration": 5468,
           "root": false,
           "rootEmpty": false,
           "_timeout": 2000
@@ -1112,7 +1112,7 @@
       "_timeout": 2000
     },
     {
-      "uuid": "1476853d-9c65-40ac-8806-1fba279d23e7",
+      "uuid": "795b18a8-0c88-45b8-b3d6-b32f78d441bc",
       "title": "",
       "fullFile": "cypress/e2e/auth/login.cy.js",
       "file": "cypress/e2e/auth/login.cy.js",
@@ -1121,7 +1121,7 @@
       "tests": [],
       "suites": [
         {
-          "uuid": "8d14eae8-4c88-4c08-a2e6-556326fe9c5f",
+          "uuid": "dc7ef2be-939a-431f-9aa0-3ce1ea6a9105",
           "title": "User Login Tests",
           "fullFile": "",
           "file": "",
@@ -1132,7 +1132,7 @@
               "title": "TC002: Should login with correct credentials",
               "fullTitle": "User Login Tests TC002: Should login with correct credentials",
               "timedOut": null,
-              "duration": 22006,
+              "duration": 20426,
               "state": "passed",
               "speed": "slow",
               "pass": true,
@@ -1141,8 +1141,8 @@
               "context": null,
               "code": "// Step 1-3: Navigate to home\nhomePage.verifyTextPresent('Full-Fledged practice website for Automation Engineers');\ncy.fixture('users.json').then(userData => {\n  const uniqueEmail = `testlogin.${Date.now()}@test.com`;\n  const testUser = _objectSpread(_objectSpread({}, userData.newUser), {}, {\n    email: uniqueEmail\n  });\n  // Criar conta\n  cy.registerNewUser(testUser, userData.address);\n  // Fazer logout\n  homePage.logout();\n  // Fazer login com as credenciais corretas\n  // Step 4-5: Click Signup/Login e verificar página\n  homePage.clickSignupLogin();\n  loginPage.verifyLoginPageVisible();\n  // Step 6: Enter correct credentials\n  loginPage.login(testUser.email, testUser.password);\n  // Step 8: Verify logged in\n  cy.contains('Logged in as', {\n    timeout: 10000\n  }).should('be.visible');\n  // Step 9-10: Delete account\n  cy.deleteAccount();\n});",
               "err": {},
-              "uuid": "31a6d5cc-4afe-40c8-9b04-0ecdcb73d6d0",
-              "parentUUID": "8d14eae8-4c88-4c08-a2e6-556326fe9c5f",
+              "uuid": "f7fbdd7c-29bf-431f-836a-f39dfee2ad7b",
+              "parentUUID": "dc7ef2be-939a-431f-9aa0-3ce1ea6a9105",
               "isHook": false,
               "skipped": false
             },
@@ -1150,7 +1150,7 @@
               "title": "TC003: Should show error with incorrect credentials",
               "fullTitle": "User Login Tests TC003: Should show error with incorrect credentials",
               "timedOut": null,
-              "duration": 4991,
+              "duration": 4327,
               "state": "passed",
               "speed": "fast",
               "pass": true,
@@ -1159,8 +1159,8 @@
               "context": null,
               "code": "// Step 1-3: Navigate to home\nhomePage.verifyTextPresent('Full-Fledged practice website for Automation Engineers');\ncy.fixture('users.json').then(userData => {\n  // Step 4: Click Signup/Login\n  homePage.clickSignupLogin();\n  // Step 5: Verify login page\n  loginPage.verifyLoginPageVisible();\n  // Step 6: Enter incorrect credentials\n  loginPage.login(userData.invalidUser.email, userData.invalidUser.password);\n  // Step 8: Verify error message\n  cy.wait(1000);\n  loginPage.verifyLoginError();\n});",
               "err": {},
-              "uuid": "17a92ff0-96be-4faf-a393-026496561c32",
-              "parentUUID": "8d14eae8-4c88-4c08-a2e6-556326fe9c5f",
+              "uuid": "ef29ddbe-15a0-4e7f-8771-f51b09269381",
+              "parentUUID": "dc7ef2be-939a-431f-9aa0-3ce1ea6a9105",
               "isHook": false,
               "skipped": false
             },
@@ -1168,7 +1168,7 @@
               "title": "TC004: Should logout user successfully",
               "fullTitle": "User Login Tests TC004: Should logout user successfully",
               "timedOut": null,
-              "duration": 13607,
+              "duration": 13042,
               "state": "passed",
               "speed": "slow",
               "pass": true,
@@ -1177,22 +1177,22 @@
               "context": null,
               "code": "// Step 1-3: Navigate to home\nhomePage.verifyTextPresent('Full-Fledged practice website for Automation Engineers');\ncy.fixture('users.json').then(userData => {\n  const uniqueEmail = `testlogout.${Date.now()}@test.com`;\n  const testUser = _objectSpread(_objectSpread({}, userData.newUser), {}, {\n    email: uniqueEmail\n  });\n  // Criar conta\n  cy.registerNewUser(testUser, userData.address);\n  // Step 8: Verify logged in (já verificado no registerNewUser)\n  // Step 9: Click Logout\n  homePage.logout();\n  // Step 10: Verify redirected to login\n  cy.url().should('include', '/login');\n  loginPage.verifyLoginPageVisible();\n});",
               "err": {},
-              "uuid": "a54a0310-5ffd-4acc-be10-88781d5cea36",
-              "parentUUID": "8d14eae8-4c88-4c08-a2e6-556326fe9c5f",
+              "uuid": "08725e98-9112-4452-af7e-93400ae30f8a",
+              "parentUUID": "dc7ef2be-939a-431f-9aa0-3ce1ea6a9105",
               "isHook": false,
               "skipped": false
             }
           ],
           "suites": [],
           "passes": [
-            "31a6d5cc-4afe-40c8-9b04-0ecdcb73d6d0",
-            "17a92ff0-96be-4faf-a393-026496561c32",
-            "a54a0310-5ffd-4acc-be10-88781d5cea36"
+            "f7fbdd7c-29bf-431f-836a-f39dfee2ad7b",
+            "ef29ddbe-15a0-4e7f-8771-f51b09269381",
+            "08725e98-9112-4452-af7e-93400ae30f8a"
           ],
           "failures": [],
           "pending": [],
           "skipped": [],
-          "duration": 40604,
+          "duration": 37795,
           "root": false,
           "rootEmpty": false,
           "_timeout": 2000
@@ -1208,7 +1208,7 @@
       "_timeout": 2000
     },
     {
-      "uuid": "0620a8a8-1a6d-4329-9abc-d61386e7f7e3",
+      "uuid": "8a3ee5cd-d43f-44a5-8758-7aff7a4ea2c6",
       "title": "",
       "fullFile": "cypress/e2e/products/products.cy.js",
       "file": "cypress/e2e/products/products.cy.js",
@@ -1217,7 +1217,7 @@
       "tests": [],
       "suites": [
         {
-          "uuid": "b8c972a2-874a-4e1d-ba07-8a37bc0761a8",
+          "uuid": "c07c154e-4e5a-4d3e-bff5-da6d9192c03a",
           "title": "Products Tests",
           "fullFile": "",
           "file": "",
@@ -1228,7 +1228,7 @@
               "title": "TC007: Should navigate to Test Cases page",
               "fullTitle": "Products Tests TC007: Should navigate to Test Cases page",
               "timedOut": null,
-              "duration": 2611,
+              "duration": 2505,
               "state": "passed",
               "speed": "fast",
               "pass": true,
@@ -1237,8 +1237,8 @@
               "context": null,
               "code": "// Step 1-3: Home page\nhomePage.verifyTextPresent('Full-Fledged practice website for Automation Engineers');\n// Step 4: Click on Test Cases button\nhomePage.clickTestCases();\n// Step 5: Verify Test Cases page\ncy.contains('h2', 'Test Cases').should('be.visible');",
               "err": {},
-              "uuid": "5f07a74a-fdee-4fb9-aae1-f91613db494f",
-              "parentUUID": "b8c972a2-874a-4e1d-ba07-8a37bc0761a8",
+              "uuid": "fce443ff-a65e-4436-8d39-1584766eb6a5",
+              "parentUUID": "c07c154e-4e5a-4d3e-bff5-da6d9192c03a",
               "isHook": false,
               "skipped": false
             },
@@ -1246,7 +1246,7 @@
               "title": "TC008: Should view all products and product details",
               "fullTitle": "Products Tests TC008: Should view all products and product details",
               "timedOut": null,
-              "duration": 4043,
+              "duration": 3032,
               "state": "passed",
               "speed": "fast",
               "pass": true,
@@ -1255,8 +1255,8 @@
               "context": null,
               "code": "// Step 1-3: Home page\nhomePage.verifyTextPresent('Full-Fledged practice website for Automation Engineers');\n// Step 4: Click Products\nhomePage.clickProducts();\n// Step 5: Verify All Products page\nproductsPage.verifyAllProductsPage();\n// Step 6: Verify products list visible\ncy.get('.features_items').should('be.visible');\n// Step 7: Click View Product\nproductsPage.clickViewProductFirst();\n// Step 8: Verify on product detail page\ncy.url().should('include', '/product_details/');\n// Step 9: Verify product details visible\nproductsPage.verifyProductDetailsVisible();",
               "err": {},
-              "uuid": "f939fa6d-d894-4f0e-bc04-601e76dd8cd1",
-              "parentUUID": "b8c972a2-874a-4e1d-ba07-8a37bc0761a8",
+              "uuid": "118817e8-0cc5-422e-a112-bac48533c2bf",
+              "parentUUID": "c07c154e-4e5a-4d3e-bff5-da6d9192c03a",
               "isHook": false,
               "skipped": false
             },
@@ -1264,7 +1264,7 @@
               "title": "TC018: Should view category products",
               "fullTitle": "Products Tests TC018: Should view category products",
               "timedOut": null,
-              "duration": 3831,
+              "duration": 2873,
               "state": "passed",
               "speed": "fast",
               "pass": true,
@@ -1273,8 +1273,8 @@
               "context": null,
               "code": "// Step 1-3: Home page\nhomePage.verifyTextPresent('Full-Fledged practice website for Automation Engineers');\n// Step 2-3: Verify categories visible on left sidebar\nhomePage.clickProducts();\ncy.get('.left-sidebar').should('be.visible');\n// Step 4: Click on Women category\ncy.contains('Women').parent().parent().find('a').first().click();\n// Step 5: Click on a subcategory\ncy.get('.category-products').first().then($category => {\n  if ($category.length) {\n    cy.contains('a', 'Dress').click();\n  }\n});\n// Step 6: Verify category page with products\ncy.contains('Women').should('be.visible');",
               "err": {},
-              "uuid": "29327fce-a524-40f9-a63c-30a96dada172",
-              "parentUUID": "b8c972a2-874a-4e1d-ba07-8a37bc0761a8",
+              "uuid": "17d128f7-b143-45bd-8ad5-8fda4cb49de6",
+              "parentUUID": "c07c154e-4e5a-4d3e-bff5-da6d9192c03a",
               "isHook": false,
               "skipped": false
             },
@@ -1282,7 +1282,7 @@
               "title": "TC019: Should view and cart brand products",
               "fullTitle": "Products Tests TC019: Should view and cart brand products",
               "timedOut": null,
-              "duration": 4919,
+              "duration": 2996,
               "state": "passed",
               "speed": "fast",
               "pass": true,
@@ -1291,23 +1291,23 @@
               "context": null,
               "code": "// Step 1-3: Home page\nhomePage.verifyTextPresent('Full-Fledged practice website for Automation Engineers');\n// Step 3: Click Products\nhomePage.clickProducts();\n// Step 4: Verify brands visible\ncy.get('.brands_products').should('be.visible');\n// Step 5: Click on first brand\ncy.get('.brands_products a').first().click();\n// Step 6: Verify brand page and products visible\ncy.get('.features_items').should('be.visible');\n// Step 7: Click on another brand\ncy.get('.brands_products a').eq(1).click();\n// Step 8: Verify new brand page\ncy.get('.features_items').should('be.visible');",
               "err": {},
-              "uuid": "16807931-2262-4946-9c18-772242dd27ac",
-              "parentUUID": "b8c972a2-874a-4e1d-ba07-8a37bc0761a8",
+              "uuid": "9a1b0d40-9604-4796-8d9f-98ce9c40d505",
+              "parentUUID": "c07c154e-4e5a-4d3e-bff5-da6d9192c03a",
               "isHook": false,
               "skipped": false
             }
           ],
           "suites": [],
           "passes": [
-            "5f07a74a-fdee-4fb9-aae1-f91613db494f",
-            "f939fa6d-d894-4f0e-bc04-601e76dd8cd1",
-            "29327fce-a524-40f9-a63c-30a96dada172",
-            "16807931-2262-4946-9c18-772242dd27ac"
+            "fce443ff-a65e-4436-8d39-1584766eb6a5",
+            "118817e8-0cc5-422e-a112-bac48533c2bf",
+            "17d128f7-b143-45bd-8ad5-8fda4cb49de6",
+            "9a1b0d40-9604-4796-8d9f-98ce9c40d505"
           ],
           "failures": [],
           "pending": [],
           "skipped": [],
-          "duration": 15404,
+          "duration": 11406,
           "root": false,
           "rootEmpty": false,
           "_timeout": 2000
@@ -1323,7 +1323,7 @@
       "_timeout": 2000
     },
     {
-      "uuid": "ad505ee6-894c-4a41-8899-9ba95f9723dd",
+      "uuid": "6ccf5a3a-3c33-43a9-848f-e774959ee35f",
       "title": "",
       "fullFile": "cypress/e2e/auth/register.cy.js",
       "file": "cypress/e2e/auth/register.cy.js",
@@ -1332,7 +1332,7 @@
       "tests": [],
       "suites": [
         {
-          "uuid": "4750d2a3-cd15-4ed9-81dc-55e630a64707",
+          "uuid": "e8a20091-cd08-465b-a582-bafbcdffa53f",
           "title": "User Registration Tests",
           "fullFile": "",
           "file": "",
@@ -1343,7 +1343,7 @@
               "title": "TC001: Should register a new user successfully",
               "fullTitle": "User Registration Tests TC001: Should register a new user successfully",
               "timedOut": null,
-              "duration": 14662,
+              "duration": 17118,
               "state": "passed",
               "speed": "slow",
               "pass": true,
@@ -1352,8 +1352,8 @@
               "context": null,
               "code": "// Step 1-3: Navegação e verificação\nhomePage.verifyTextPresent('Full-Fledged practice website for Automation Engineers');\n// Step 4-16: Registro completo de usuário\ncy.fixture('users.json').then(userData => {\n  const uniqueEmail = `testuser.${Date.now()}@automationexercise.com`;\n  const testUser = _objectSpread(_objectSpread({}, userData.newUser), {}, {\n    email: uniqueEmail\n  });\n  cy.registerNewUser(testUser, userData.address);\n  // Step 17-18: Delete Account\n  cy.deleteAccount();\n});",
               "err": {},
-              "uuid": "327d6615-ff44-4198-9233-e7824ac7d33f",
-              "parentUUID": "4750d2a3-cd15-4ed9-81dc-55e630a64707",
+              "uuid": "5a0bee19-14fb-4cf4-b461-91101d75ba5c",
+              "parentUUID": "e8a20091-cd08-465b-a582-bafbcdffa53f",
               "isHook": false,
               "skipped": false
             },
@@ -1361,7 +1361,7 @@
               "title": "TC005: Should show error when registering with existing email",
               "fullTitle": "User Registration Tests TC005: Should show error when registering with existing email",
               "timedOut": null,
-              "duration": 19404,
+              "duration": 17873,
               "state": "passed",
               "speed": "slow",
               "pass": true,
@@ -1370,21 +1370,21 @@
               "context": null,
               "code": "// Step 1-3: Home page\nhomePage.verifyTextPresent('Full-Fledged practice website for Automation Engineers');\ncy.fixture('users.json').then(userData => {\n  const testEmail = `existing.${Date.now()}@test.com`;\n  const testUser = _objectSpread(_objectSpread({}, userData.newUser), {}, {\n    email: testEmail\n  });\n  // Criar conta primeiro\n  cy.registerNewUser(testUser, userData.address);\n  // Fazer logout\n  homePage.logout();\n  // Tentar registrar novamente com o mesmo email\n  // Step 4-5: Click Signup/Login e verificar página\n  homePage.clickSignupLogin();\n  loginPage.verifySignupPageVisible();\n  // Step 6: Enter name and existing email\n  loginPage.signup(userData.newUser.name, testEmail);\n  // Step 8: Verify error message\n  loginPage.verifyEmailExistsError();\n  // Cleanup: Login e deletar conta\n  cy.get('input[data-qa=\"login-email\"]').clear().type(testEmail);\n  cy.get('input[data-qa=\"login-password\"]').clear().type(userData.newUser.password);\n  cy.get('button[data-qa=\"login-button\"]').click();\n  cy.contains('Logged in as', {\n    timeout: 10000\n  }).should('be.visible');\n  cy.deleteAccount();\n});",
               "err": {},
-              "uuid": "57c8fc35-4cff-487b-bcb1-21c781702ed8",
-              "parentUUID": "4750d2a3-cd15-4ed9-81dc-55e630a64707",
+              "uuid": "059e8310-0aaf-4a81-8e5a-c3f7ecec17c4",
+              "parentUUID": "e8a20091-cd08-465b-a582-bafbcdffa53f",
               "isHook": false,
               "skipped": false
             }
           ],
           "suites": [],
           "passes": [
-            "327d6615-ff44-4198-9233-e7824ac7d33f",
-            "57c8fc35-4cff-487b-bcb1-21c781702ed8"
+            "5a0bee19-14fb-4cf4-b461-91101d75ba5c",
+            "059e8310-0aaf-4a81-8e5a-c3f7ecec17c4"
           ],
           "failures": [],
           "pending": [],
           "skipped": [],
-          "duration": 34066,
+          "duration": 34991,
           "root": false,
           "rootEmpty": false,
           "_timeout": 2000
@@ -1400,7 +1400,7 @@
       "_timeout": 2000
     },
     {
-      "uuid": "06d0e832-0547-4ceb-8fab-98ad43ce573c",
+      "uuid": "07d0c45e-26ab-4184-a79f-0dbfe6b0e02c",
       "title": "",
       "fullFile": "cypress/e2e/products/search.cy.js",
       "file": "cypress/e2e/products/search.cy.js",
@@ -1409,7 +1409,7 @@
       "tests": [],
       "suites": [
         {
-          "uuid": "532b88db-4322-4356-afbf-207dcfc4bee1",
+          "uuid": "b86c5ca0-98da-44c0-9342-515c6f08211d",
           "title": "Search and Review Tests",
           "fullFile": "",
           "file": "",
@@ -1420,7 +1420,7 @@
               "title": "TC009: Should search for products",
               "fullTitle": "Search and Review Tests TC009: Should search for products",
               "timedOut": null,
-              "duration": 4659,
+              "duration": 3571,
               "state": "passed",
               "speed": "fast",
               "pass": true,
@@ -1429,8 +1429,8 @@
               "context": null,
               "code": "// Step 1-3: Home page\nhomePage.verifyTextPresent('Full-Fledged practice website for Automation Engineers');\n// Step 4: Click Products\nhomePage.clickProducts();\n// Step 5: Verify All Products page\nproductsPage.verifyAllProductsPage();\n// Step 6: Search for product\nconst searchTerm = 'Tshirt';\nproductsPage.searchProduct(searchTerm);\n// Step 7: Verify searched products page\nproductsPage.verifySearchedProductsPage();\n// Step 8: Verify search results\ncy.get('.features_items').should('be.visible');\ncy.get('.single-products').should('have.length.greaterThan', 0);",
               "err": {},
-              "uuid": "8b77e6aa-fd70-4c20-8968-bcec61ce5e85",
-              "parentUUID": "532b88db-4322-4356-afbf-207dcfc4bee1",
+              "uuid": "118035f8-a174-4478-b0b5-2b30c3f1dc69",
+              "parentUUID": "b86c5ca0-98da-44c0-9342-515c6f08211d",
               "isHook": false,
               "skipped": false
             },
@@ -1438,7 +1438,7 @@
               "title": "TC021: Should add review on product",
               "fullTitle": "Search and Review Tests TC021: Should add review on product",
               "timedOut": null,
-              "duration": 6903,
+              "duration": 6137,
               "state": "passed",
               "speed": "medium",
               "pass": true,
@@ -1447,21 +1447,21 @@
               "context": null,
               "code": "// Step 1-3: Home page\nhomePage.verifyTextPresent('Full-Fledged practice website for Automation Engineers');\n// Step 3: Click Products\nhomePage.clickProducts();\n// Step 5: Click View Product\nproductsPage.clickViewProductFirst();\n// Step 6: Verify Write Your Review visible\ncy.contains('Write Your Review').should('be.visible');\n// Step 7: Enter review details\nconst reviewerName = 'Test Reviewer';\nconst reviewerEmail = `reviewer.${Date.now()}@test.com`;\nconst reviewText = 'This is an excellent product! Highly recommended for everyone.';\nproductsPage.addReview(reviewerName, reviewerEmail, reviewText);\n// Step 8: Submit review\ncy.wait(1000);\n// Step 9: Verify success message\nproductsPage.verifyReviewSuccess();",
               "err": {},
-              "uuid": "09c8d449-3938-4780-8fcd-a033ac9ad29d",
-              "parentUUID": "532b88db-4322-4356-afbf-207dcfc4bee1",
+              "uuid": "2b9cfd59-472a-4f4b-9ce6-6a69d7841a2e",
+              "parentUUID": "b86c5ca0-98da-44c0-9342-515c6f08211d",
               "isHook": false,
               "skipped": false
             }
           ],
           "suites": [],
           "passes": [
-            "8b77e6aa-fd70-4c20-8968-bcec61ce5e85",
-            "09c8d449-3938-4780-8fcd-a033ac9ad29d"
+            "118035f8-a174-4478-b0b5-2b30c3f1dc69",
+            "2b9cfd59-472a-4f4b-9ce6-6a69d7841a2e"
           ],
           "failures": [],
           "pending": [],
           "skipped": [],
-          "duration": 11562,
+          "duration": 9708,
           "root": false,
           "rootEmpty": false,
           "_timeout": 2000
@@ -1477,7 +1477,7 @@
       "_timeout": 2000
     },
     {
-      "uuid": "fdbcfb84-26cb-4ed6-baf1-077a9e42689c",
+      "uuid": "93997603-833c-4f05-a7cd-4d3fb814dfd1",
       "title": "",
       "fullFile": "cypress/e2e/other/ui.cy.js",
       "file": "cypress/e2e/other/ui.cy.js",
@@ -1486,7 +1486,7 @@
       "tests": [],
       "suites": [
         {
-          "uuid": "fdf6a11d-6b6c-47a3-bc21-5fc37b14365b",
+          "uuid": "d3ceea04-526d-4f60-857c-987661719bf9",
           "title": "UI and General Functionality Tests",
           "fullFile": "",
           "file": "",
@@ -1497,7 +1497,7 @@
               "title": "TC010: Should verify subscription in home page",
               "fullTitle": "UI and General Functionality Tests TC010: Should verify subscription in home page",
               "timedOut": null,
-              "duration": 2822,
+              "duration": 2709,
               "state": "passed",
               "speed": "fast",
               "pass": true,
@@ -1506,8 +1506,8 @@
               "context": null,
               "code": "// Step 1-3: Navigate to home\nhomePage.visitHome();\nhomePage.verifyTextPresent('Full-Fledged practice website for Automation Engineers');\n// Step 4-5: Scroll and verify subscription\nhomePage.verifySubscriptionVisible();\n// Step 6-7: Enter email and subscribe\nconst email = `subscriber.${Date.now()}@test.com`;\nhomePage.subscribe(email);",
               "err": {},
-              "uuid": "42b5867f-6123-41d0-a898-03cd9611ed9c",
-              "parentUUID": "fdf6a11d-6b6c-47a3-bc21-5fc37b14365b",
+              "uuid": "c927c825-a51e-4b30-870f-7e42914a2abc",
+              "parentUUID": "d3ceea04-526d-4f60-857c-987661719bf9",
               "isHook": false,
               "skipped": false
             },
@@ -1515,7 +1515,7 @@
               "title": "TC011: Should verify subscription in cart page",
               "fullTitle": "UI and General Functionality Tests TC011: Should verify subscription in cart page",
               "timedOut": null,
-              "duration": 3720,
+              "duration": 3478,
               "state": "passed",
               "speed": "fast",
               "pass": true,
@@ -1524,8 +1524,8 @@
               "context": null,
               "code": "// Step 1-3: Navigate to home\nhomePage.visitHome();\nhomePage.verifyTextPresent('Full-Fledged practice website for Automation Engineers');\n// Step 4: Click Cart\nhomePage.clickCart();\n// Step 5-6: Scroll and verify subscription\ncartPage.scrollToBottom();\ncy.contains('Subscription').should('be.visible');\n// Step 7-8: Enter email and subscribe\nconst email = `subscriber.${Date.now()}@test.com`;\ncartPage.subscribe(email);",
               "err": {},
-              "uuid": "5dff35c7-1f0c-444e-aefb-fcda8e4b99b7",
-              "parentUUID": "fdf6a11d-6b6c-47a3-bc21-5fc37b14365b",
+              "uuid": "15c4d55a-563a-4f55-9abf-3089402b7565",
+              "parentUUID": "d3ceea04-526d-4f60-857c-987661719bf9",
               "isHook": false,
               "skipped": false
             },
@@ -1533,7 +1533,7 @@
               "title": "TC025: Should verify scroll up with arrow button",
               "fullTitle": "UI and General Functionality Tests TC025: Should verify scroll up with arrow button",
               "timedOut": null,
-              "duration": 3681,
+              "duration": 4604,
               "state": "passed",
               "speed": "fast",
               "pass": true,
@@ -1542,8 +1542,8 @@
               "context": null,
               "code": "// Step 1-3: Navigate to home\nhomePage.visitHome();\nhomePage.verifyTextPresent('Full-Fledged practice website for Automation Engineers');\n// Step 4: Scroll down to footer\nhomePage.scrollToBottom();\n// Step 5: Verify subscription visible\ncy.contains('Subscription').should('be.visible');\n// Step 6: Click arrow to scroll up\nhomePage.scrollUpWithArrow();\n// Step 7: Verify hero section visible\nhomePage.verifyHeroSectionVisible();",
               "err": {},
-              "uuid": "70735a6f-5fad-4ae5-b3cb-b6ebd29436dc",
-              "parentUUID": "fdf6a11d-6b6c-47a3-bc21-5fc37b14365b",
+              "uuid": "d83f7877-1e5f-40ad-a072-e0ce496b4b03",
+              "parentUUID": "d3ceea04-526d-4f60-857c-987661719bf9",
               "isHook": false,
               "skipped": false
             },
@@ -1551,7 +1551,7 @@
               "title": "TC026: Should verify scroll up without arrow button",
               "fullTitle": "UI and General Functionality Tests TC026: Should verify scroll up without arrow button",
               "timedOut": null,
-              "duration": 3160,
+              "duration": 2248,
               "state": "passed",
               "speed": "fast",
               "pass": true,
@@ -1560,23 +1560,23 @@
               "context": null,
               "code": "// Step 1-3: Navigate to home\nhomePage.visitHome();\nhomePage.verifyTextPresent('Full-Fledged practice website for Automation Engineers');\n// Step 4: Scroll down\nhomePage.scrollToBottom();\n// Step 5: Verify subscription visible\ncy.contains('Subscription').should('be.visible');\n// Step 6: Scroll up without arrow\nhomePage.scrollToTop();\n// Step 7: Verify hero section visible\nhomePage.verifyHeroSectionVisible();",
               "err": {},
-              "uuid": "877cdca4-49c9-4ad1-9fcd-b937343e7e5f",
-              "parentUUID": "fdf6a11d-6b6c-47a3-bc21-5fc37b14365b",
+              "uuid": "8f0bc373-a9b3-4f7a-960b-c60d3597cc3c",
+              "parentUUID": "d3ceea04-526d-4f60-857c-987661719bf9",
               "isHook": false,
               "skipped": false
             }
           ],
           "suites": [],
           "passes": [
-            "42b5867f-6123-41d0-a898-03cd9611ed9c",
-            "5dff35c7-1f0c-444e-aefb-fcda8e4b99b7",
-            "70735a6f-5fad-4ae5-b3cb-b6ebd29436dc",
-            "877cdca4-49c9-4ad1-9fcd-b937343e7e5f"
+            "c927c825-a51e-4b30-870f-7e42914a2abc",
+            "15c4d55a-563a-4f55-9abf-3089402b7565",
+            "d83f7877-1e5f-40ad-a072-e0ce496b4b03",
+            "8f0bc373-a9b3-4f7a-960b-c60d3597cc3c"
           ],
           "failures": [],
           "pending": [],
           "skipped": [],
-          "duration": 13383,
+          "duration": 13039,
           "root": false,
           "rootEmpty": false,
           "_timeout": 2000
