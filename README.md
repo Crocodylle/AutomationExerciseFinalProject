@@ -17,6 +17,7 @@ Projeto de automação web completo para **automationexercise.com** utilizando C
 
 - **Cypress** 13.6.1
 - **JavaScript** (ES6+)
+- **Node.js** 20.x (LTS)
 - **Mochawesome** (Reporter)
 - **GitHub Actions** (CI/CD)
 
@@ -24,14 +25,14 @@ Projeto de automação web completo para **automationexercise.com** utilizando C
 
 ### Pré-requisitos
 
-- Node.js 14+ instalado
+- Node.js 20+ instalado
 - npm ou yarn
 
 ### Passos
 
 ```bash
 # Clone ou navegue até o diretório do projeto
-cd ProjetoFinal
+cd AutomationExerciseFinalProject
 
 # Instale as dependências
 npm install
@@ -65,47 +66,56 @@ npm run cy:run:firefox
 ## 📁 Estrutura do Projeto
 
 ```
-ProjetoFinal/
-├── cypress/
-│   ├── e2e/
-│   │   ├── auth/
-│   │   │   ├── register.cy.js
-│   │   │   ├── login.cy.js
-│   │   │   └── logout.cy.js
-│   │   ├── products/
-│   │   │   ├── products.cy.js
-│   │   │   ├── search.cy.js
-│   │   │   └── cart.cy.js
-│   │   ├── checkout/
-│   │   │   └── checkout.cy.js
-│   │   └── other/
-│   │       ├── contact.cy.js
-│   │       ├── reviews.cy.js
-│   │       └── ui.cy.js
-│   ├── fixtures/
-│   │   ├── users.json
-│   │   ├── products.json
-│   │   └── checkout.json
-│   ├── support/
-│   │   ├── e2e.js
-│   │   ├── commands.js
-│   │   └── page-objects/
-│   │       ├── Base.js
-│   │       ├── HomePage.js
-│   │       ├── LoginPage.js
-│   │       ├── ProductsPage.js
-│   │       ├── CartPage.js
-│   │       └── CheckoutPage.js
-│   └── reports/
-│       └── mochawesome-report/
-├── scripts/
-│   └── generate-report.js
+AutomationExerciseFinalProject/
 ├── .github/
 │   └── workflows/
-│       └── cypress-tests.yml
-├── cypress.config.js
-├── package.json
-└── README.md
+│       └── cypress-tests.yml       # CI/CD pipeline (Node 20.x, multi-browser)
+├── cypress/
+│   ├── downloads/
+│   │   └── invoice.txt
+│   ├── e2e/
+│   │   ├── auth/
+│   │   │   ├── register.cy.js     # TC001, TC005
+│   │   │   └── login.cy.js        # TC002, TC003, TC004
+│   │   ├── cart/
+│   │   │   └── cart.cy.js         # TC008, TC009, TC012, TC013, TC017, TC020
+│   │   ├── checkout/
+│   │   │   └── checkout.cy.js     # TC014, TC016, TC023, TC024
+│   │   ├── other/
+│   │   │   ├── contact.cy.js      # TC006
+│   │   │   └── ui.cy.js           # TC010, TC025, TC026
+│   │   └── products/
+│   │       ├── products.cy.js     # TC007, TC018, TC019, TC021, TC022
+│   │       └── search.cy.js       # TC009, TC011
+│   ├── fixtures/
+│   │   ├── checkout.json          # Dados de endereço e pagamento
+│   │   └── users.json             # Dados de usuários de teste
+│   ├── reports/
+│   │   └── mochawesome-report/    # Relatórios HTML gerados
+│   ├── screenshots/               # Screenshots de falhas
+│   ├── support/
+│   │   ├── commands.js            # Custom commands reutilizáveis
+│   │   ├── e2e.js                 # Configurações globais
+│   │   └── page-objects/
+│   │       ├── Base.js            # Classe base com 20+ métodos comuns
+│   │       ├── CartPage.js
+│   │       ├── CheckoutPage.js
+│   │       ├── HomePage.js
+│   │       ├── LoginPage.js
+│   │       └── ProductsPage.js
+│   └── videos/                    # Vídeos de testes (CI)
+├── memory-bank/                   # Documentação do projeto
+│   ├── progress.md                # Status e progresso
+│   ├── projectbrief.md            # Visão geral do projeto
+│   ├── seletores-validados.md     # Seletores validados via Chrome DevTools
+│   ├── systemPatterns.md          # Padrões de arquitetura
+│   ├── techContext.md             # Contexto técnico
+│   └── test-cases-detalhados.md   # Detalhamento dos test cases
+├── scripts/
+│   └── generate-report.js         # Geração de relatórios consolidados
+├── cypress.config.js              # Configuração do Cypress
+├── package.json                   # Dependências e scripts
+└── README.md                      # Este arquivo
 ```
 
 ## 📊 Test Cases Implementados
@@ -145,16 +155,29 @@ ProjetoFinal/
 
 ## ♻️ Reusabilidade e Manutenibilidade
 
-### Refatoração Recente
-O projeto passou por uma refatoração focada em **eliminar duplicação de código**:
-- ✅ **31% redução** de código nos testes principais
-- ✅ **4 novos custom commands** criados
-- ✅ **8 testes principais** refatorados
-- ✅ **164 linhas de código** removidas
+### Page Object Model (POM)
+O projeto utiliza o padrão Page Object Model para melhor organização e manutenibilidade:
+- ✅ **Base.js** - Classe base com 20+ métodos comuns
+- ✅ **6 Page Objects** especializados por funcionalidade
+- ✅ **Seletores centralizados** e reutilizáveis
+- ✅ **Métodos encapsulados** por responsabilidade
 
-**Resultado**: Testes mais limpos, legíveis e fáceis de manter.
+### Custom Commands
+Comandos Cypress personalizados que encapsulam operações complexas:
+- ✅ **Autenticação**: `cy.loginUser()`, `cy.registerNewUser()`, `cy.deleteAccount()`
+- ✅ **Carrinho**: `cy.addProductsToCart()`, `cy.addProductAndViewCart()`
+- ✅ **Checkout**: `cy.completeCheckout()`, `cy.downloadInvoice()`
+- ✅ **Formulários**: `cy.fillSignupForm()`, `cy.fillAddressForm()`
+- ✅ **Utilidades**: `cy.generateEmail()`, `cy.scrollToBottom()`
 
-Veja [REFATORACAO_REUSABILIDADE.md](REFATORACAO_REUSABILIDADE.md) para detalhes completos.
+### Memory Bank
+Documentação viva do projeto na pasta `memory-bank/`:
+- 📄 **projectbrief.md** - Objetivos e escopo do projeto
+- 📄 **progress.md** - Status atual e progresso dos test cases
+- 📄 **systemPatterns.md** - Padrões arquiteturais e decisões técnicas
+- 📄 **techContext.md** - Stack tecnológico e configurações
+- 📄 **seletores-validados.md** - Seletores validados com Chrome DevTools MCP
+- 📄 **test-cases-detalhados.md** - Especificação detalhada dos 26 test cases
 
 ## 🔍 Padrões e Boas Práticas
 
@@ -221,21 +244,32 @@ cy.scrollToTop();                           // Scroll até o topo
 
 ## 🔄 CI/CD - GitHub Actions
 
-Os testes rodam automaticamente em cada push para a branch main.
+Os testes rodam automaticamente em múltiplos browsers com Node.js 20.x.
 
-### Configuração
-
-Veja `.github/workflows/cypress-tests.yml` para mais detalhes.
+### Características do Pipeline
+- ✅ **Node.js 20.x** (LTS atual)
+- ✅ **Multi-browser**: Chromium e Firefox em paralelo
+- ✅ **Artefatos**: Relatórios, screenshots e vídeos preservados
+- ✅ **GitHub Pages**: Deploy automático dos relatórios
+- ✅ **Retry Strategy**: 1 tentativa automática em caso de falha
 
 ### Disparadores
-- ✅ Push para `main`
-- ✅ Pull Requests para `main`
-- ✅ Agendamento diário (optional)
+- 🔄 Push para `main` ou `develop`
+- 🔀 Pull Requests para `main`
+- ⏰ Agendamento diário às 9 AM UTC
 
-### Artefatos Gerados
+### Artefatos Gerados (30 dias de retenção)
 - 📊 Relatórios HTML Mochawesome
-- 📹 Vídeos de teste (headless)
+- 📹 Vídeos de teste (modo headless)
 - 📷 Screenshots em caso de falha
+
+### Workflow Atualizado
+O workflow foi modernizado com:
+- ✅ `actions/checkout@v4`
+- ✅ `actions/setup-node@v4`
+- ✅ `actions/upload-artifact@v4`
+- ✅ `peaceiris/actions-gh-pages@v4`
+- ✅ Permissões adequadas para GitHub Pages
 
 ## 📊 Relatórios
 
@@ -287,6 +321,7 @@ MIT
 
 ---
 
-**Autor**: Automação QA  
-**Versão**: 1.0.0  
-**Última Atualização**: 2025
+**Repositório**: [AutomationExerciseFinalProject](https://github.com/Crocodylle/AutomationExerciseFinalProject)  
+**Site Testado**: [automationexercise.com](https://automationexercise.com)  
+**CI/CD Status**: [![Cypress Tests CI/CD](https://github.com/Crocodylle/AutomationExerciseFinalProject/actions/workflows/cypress-tests.yml/badge.svg)](https://github.com/Crocodylle/AutomationExerciseFinalProject/actions/workflows/cypress-tests.yml)  
+**Última Atualização**: Outubro 2025
