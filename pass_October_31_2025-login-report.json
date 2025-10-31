@@ -5,9 +5,9 @@
     "passes": 3,
     "pending": 0,
     "failures": 0,
-    "start": "2025-10-31T22:00:46.969Z",
-    "end": "2025-10-31T22:01:27.347Z",
-    "duration": 40378,
+    "start": "2025-10-31T22:00:57.553Z",
+    "end": "2025-10-31T22:01:32.939Z",
+    "duration": 35386,
     "testsRegistered": 3,
     "passPercent": 100,
     "pendingPercent": 0,
@@ -18,7 +18,7 @@
   },
   "results": [
     {
-      "uuid": "886e8864-2c88-4a6f-a95c-289a087572f3",
+      "uuid": "84a48dc9-587b-4671-b847-43f92d418423",
       "title": "",
       "fullFile": "cypress/e2e/auth/login.cy.js",
       "file": "cypress/e2e/auth/login.cy.js",
@@ -27,7 +27,7 @@
       "tests": [],
       "suites": [
         {
-          "uuid": "ecc1a196-9276-416a-bcc1-c6cd392d8023",
+          "uuid": "8b5e4a4e-ee75-4890-bbe7-127ceb3b6289",
           "title": "User Login Tests",
           "fullFile": "",
           "file": "",
@@ -38,7 +38,7 @@
               "title": "TC002: Should login with correct credentials",
               "fullTitle": "User Login Tests TC002: Should login with correct credentials",
               "timedOut": null,
-              "duration": 23872,
+              "duration": 19125,
               "state": "passed",
               "speed": "slow",
               "pass": true,
@@ -47,8 +47,8 @@
               "context": null,
               "code": "// Step 1-3: Navigate to home\nhomePage.verifyTextPresent('Full-Fledged practice website for Automation Engineers');\ncy.fixture('users.json').then(userData => {\n  const uniqueEmail = `testlogin.${Date.now()}@test.com`;\n  const testUser = _objectSpread(_objectSpread({}, userData.newUser), {}, {\n    email: uniqueEmail\n  });\n  // Criar conta\n  cy.registerNewUser(testUser, userData.address);\n  // Fazer logout\n  homePage.logout();\n  // Fazer login com as credenciais corretas\n  // Step 4-5: Click Signup/Login e verificar página\n  homePage.clickSignupLogin();\n  loginPage.verifyLoginPageVisible();\n  // Step 6: Enter correct credentials\n  loginPage.login(testUser.email, testUser.password);\n  // Step 8: Verify logged in\n  cy.contains('Logged in as', {\n    timeout: 10000\n  }).should('be.visible');\n  // Step 9-10: Delete account\n  cy.deleteAccount();\n});",
               "err": {},
-              "uuid": "e98c2a90-b96c-49d9-a3c7-15b269fb6288",
-              "parentUUID": "ecc1a196-9276-416a-bcc1-c6cd392d8023",
+              "uuid": "29bfc016-84e1-4569-a7d8-b9f3eb2343c6",
+              "parentUUID": "8b5e4a4e-ee75-4890-bbe7-127ceb3b6289",
               "isHook": false,
               "skipped": false
             },
@@ -56,7 +56,7 @@
               "title": "TC003: Should show error with incorrect credentials",
               "fullTitle": "User Login Tests TC003: Should show error with incorrect credentials",
               "timedOut": null,
-              "duration": 3849,
+              "duration": 4515,
               "state": "passed",
               "speed": "fast",
               "pass": true,
@@ -65,8 +65,8 @@
               "context": null,
               "code": "// Step 1-3: Navigate to home\nhomePage.verifyTextPresent('Full-Fledged practice website for Automation Engineers');\ncy.fixture('users.json').then(userData => {\n  // Step 4: Click Signup/Login\n  homePage.clickSignupLogin();\n  // Step 5: Verify login page\n  loginPage.verifyLoginPageVisible();\n  // Step 6: Enter incorrect credentials\n  loginPage.login(userData.invalidUser.email, userData.invalidUser.password);\n  // Step 8: Verify error message\n  cy.wait(1000);\n  loginPage.verifyLoginError();\n});",
               "err": {},
-              "uuid": "8ec954c2-e776-4aa0-b486-0b2989df9cbb",
-              "parentUUID": "ecc1a196-9276-416a-bcc1-c6cd392d8023",
+              "uuid": "5d368004-9cc5-477e-b459-633b7b8a2cce",
+              "parentUUID": "8b5e4a4e-ee75-4890-bbe7-127ceb3b6289",
               "isHook": false,
               "skipped": false
             },
@@ -74,7 +74,7 @@
               "title": "TC004: Should logout user successfully",
               "fullTitle": "User Login Tests TC004: Should logout user successfully",
               "timedOut": null,
-              "duration": 12282,
+              "duration": 11411,
               "state": "passed",
               "speed": "slow",
               "pass": true,
@@ -83,22 +83,22 @@
               "context": null,
               "code": "// Step 1-3: Navigate to home\nhomePage.verifyTextPresent('Full-Fledged practice website for Automation Engineers');\ncy.fixture('users.json').then(userData => {\n  const uniqueEmail = `testlogout.${Date.now()}@test.com`;\n  const testUser = _objectSpread(_objectSpread({}, userData.newUser), {}, {\n    email: uniqueEmail\n  });\n  // Criar conta\n  cy.registerNewUser(testUser, userData.address);\n  // Step 8: Verify logged in (já verificado no registerNewUser)\n  // Step 9: Click Logout\n  homePage.logout();\n  // Step 10: Verify redirected to login\n  cy.url().should('include', '/login');\n  loginPage.verifyLoginPageVisible();\n});",
               "err": {},
-              "uuid": "387588b7-92a5-42c6-b5a1-58cf3d5cf500",
-              "parentUUID": "ecc1a196-9276-416a-bcc1-c6cd392d8023",
+              "uuid": "aa7ace20-e1ce-4ba2-9536-8f626beddbc6",
+              "parentUUID": "8b5e4a4e-ee75-4890-bbe7-127ceb3b6289",
               "isHook": false,
               "skipped": false
             }
           ],
           "suites": [],
           "passes": [
-            "e98c2a90-b96c-49d9-a3c7-15b269fb6288",
-            "8ec954c2-e776-4aa0-b486-0b2989df9cbb",
-            "387588b7-92a5-42c6-b5a1-58cf3d5cf500"
+            "29bfc016-84e1-4569-a7d8-b9f3eb2343c6",
+            "5d368004-9cc5-477e-b459-633b7b8a2cce",
+            "aa7ace20-e1ce-4ba2-9536-8f626beddbc6"
           ],
           "failures": [],
           "pending": [],
           "skipped": [],
-          "duration": 40003,
+          "duration": 35051,
           "root": false,
           "rootEmpty": false,
           "_timeout": 2000

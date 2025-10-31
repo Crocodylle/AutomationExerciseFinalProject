@@ -5,9 +5,9 @@
     "passes": 2,
     "pending": 0,
     "failures": 0,
-    "start": "2025-10-31T22:04:00.716Z",
-    "end": "2025-10-31T22:04:10.901Z",
-    "duration": 10185,
+    "start": "2025-10-31T22:04:10.490Z",
+    "end": "2025-10-31T22:04:19.269Z",
+    "duration": 8779,
     "testsRegistered": 2,
     "passPercent": 100,
     "pendingPercent": 0,
@@ -18,7 +18,7 @@
   },
   "results": [
     {
-      "uuid": "b860768d-1990-4392-b15b-3f57e4be67ea",
+      "uuid": "8d095085-5ce6-4f29-8352-cfc865dc3f11",
       "title": "",
       "fullFile": "cypress/e2e/products/search.cy.js",
       "file": "cypress/e2e/products/search.cy.js",
@@ -27,7 +27,7 @@
       "tests": [],
       "suites": [
         {
-          "uuid": "26f7195d-9164-4037-ad29-cf84553ad1bc",
+          "uuid": "2f099e5b-8b7f-4c79-aed6-2de3793d3e68",
           "title": "Search and Review Tests",
           "fullFile": "",
           "file": "",
@@ -38,7 +38,7 @@
               "title": "TC009: Should search for products",
               "fullTitle": "Search and Review Tests TC009: Should search for products",
               "timedOut": null,
-              "duration": 4417,
+              "duration": 3034,
               "state": "passed",
               "speed": "fast",
               "pass": true,
@@ -47,8 +47,8 @@
               "context": null,
               "code": "// Step 1-3: Home page\nhomePage.verifyTextPresent('Full-Fledged practice website for Automation Engineers');\n// Step 4: Click Products\nhomePage.clickProducts();\n// Step 5: Verify All Products page\nproductsPage.verifyAllProductsPage();\n// Step 6: Search for product\nconst searchTerm = 'Tshirt';\nproductsPage.searchProduct(searchTerm);\n// Step 7: Verify searched products page\nproductsPage.verifySearchedProductsPage();\n// Step 8: Verify search results\ncy.get('.features_items').should('be.visible');\ncy.get('.single-products').should('have.length.greaterThan', 0);",
               "err": {},
-              "uuid": "6e9a3840-d755-470c-9081-25108ef123b4",
-              "parentUUID": "26f7195d-9164-4037-ad29-cf84553ad1bc",
+              "uuid": "b067e66d-9338-4d91-843e-3cc2ef118841",
+              "parentUUID": "2f099e5b-8b7f-4c79-aed6-2de3793d3e68",
               "isHook": false,
               "skipped": false
             },
@@ -56,7 +56,7 @@
               "title": "TC021: Should add review on product",
               "fullTitle": "Search and Review Tests TC021: Should add review on product",
               "timedOut": null,
-              "duration": 5598,
+              "duration": 5618,
               "state": "passed",
               "speed": "medium",
               "pass": true,
@@ -65,21 +65,21 @@
               "context": null,
               "code": "// Step 1-3: Home page\nhomePage.verifyTextPresent('Full-Fledged practice website for Automation Engineers');\n// Step 3: Click Products\nhomePage.clickProducts();\n// Step 5: Click View Product\nproductsPage.clickViewProductFirst();\n// Step 6: Verify Write Your Review visible\ncy.contains('Write Your Review').should('be.visible');\n// Step 7: Enter review details\nconst reviewerName = 'Test Reviewer';\nconst reviewerEmail = `reviewer.${Date.now()}@test.com`;\nconst reviewText = 'This is an excellent product! Highly recommended for everyone.';\nproductsPage.addReview(reviewerName, reviewerEmail, reviewText);\n// Step 8: Submit review\ncy.wait(1000);\n// Step 9: Verify success message\nproductsPage.verifyReviewSuccess();",
               "err": {},
-              "uuid": "39c3b195-1330-43b3-8894-825299768087",
-              "parentUUID": "26f7195d-9164-4037-ad29-cf84553ad1bc",
+              "uuid": "59e10d04-eacf-4ffc-9771-e24d7eca34b3",
+              "parentUUID": "2f099e5b-8b7f-4c79-aed6-2de3793d3e68",
               "isHook": false,
               "skipped": false
             }
           ],
           "suites": [],
           "passes": [
-            "6e9a3840-d755-470c-9081-25108ef123b4",
-            "39c3b195-1330-43b3-8894-825299768087"
+            "b067e66d-9338-4d91-843e-3cc2ef118841",
+            "59e10d04-eacf-4ffc-9771-e24d7eca34b3"
           ],
           "failures": [],
           "pending": [],
           "skipped": [],
-          "duration": 10015,
+          "duration": 8652,
           "root": false,
           "rootEmpty": false,
           "_timeout": 2000
