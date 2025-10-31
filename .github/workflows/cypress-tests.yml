@@ -8,9 +8,6 @@ on:
   pull_request:
     branches:
       - main
-  schedule:
-    # Executar diariamente às 9 AM (horário UTC)
-    - cron: '0 9 * * *'
 
 # Permissions needed for GitHub Pages deployment
 permissions:
