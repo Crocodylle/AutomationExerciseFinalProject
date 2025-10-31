@@ -256,7 +256,6 @@ Os testes rodam automaticamente em múltiplos browsers com Node.js 20.x.
 ### Disparadores
 - 🔄 Push para `main` ou `develop`
 - 🔀 Pull Requests para `main`
-- ⏰ Agendamento diário às 9 AM UTC
 
 ### Artefatos Gerados (30 dias de retenção)
 - 📊 Relatórios HTML Mochawesome
