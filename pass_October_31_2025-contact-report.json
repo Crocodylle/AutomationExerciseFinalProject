@@ -5,9 +5,9 @@
     "passes": 1,
     "pending": 0,
     "failures": 0,
-    "start": "2025-10-27T21:38:57.412Z",
-    "end": "2025-10-27T21:39:05.066Z",
-    "duration": 7654,
+    "start": "2025-10-31T22:03:30.141Z",
+    "end": "2025-10-31T22:03:35.143Z",
+    "duration": 5002,
     "testsRegistered": 1,
     "passPercent": 100,
     "pendingPercent": 0,
@@ -18,7 +18,7 @@
   },
   "results": [
     {
-      "uuid": "d1e66462-78e4-4354-a918-33c5cf29ac05",
+      "uuid": "965a1862-667a-4e60-878d-01b1947b94f1",
       "title": "",
       "fullFile": "cypress/e2e/other/contact.cy.js",
       "file": "cypress/e2e/other/contact.cy.js",
@@ -27,7 +27,7 @@
       "tests": [],
       "suites": [
         {
-          "uuid": "30ee7632-018f-4c74-b132-0b54502bd803",
+          "uuid": "0b016ee0-123b-4d9b-bf25-0af84e78b548",
           "title": "Contact Us Tests",
           "fullFile": "",
           "file": "",
@@ -38,29 +38,29 @@
               "title": "TC006: Should submit contact us form",
               "fullTitle": "Contact Us Tests TC006: Should submit contact us form",
               "timedOut": null,
-              "duration": 7508,
+              "duration": 4894,
               "state": "passed",
-              "speed": "medium",
+              "speed": "fast",
               "pass": true,
               "fail": false,
               "pending": false,
               "context": null,
               "code": "// Step 1-3: Home page\nhomePage.verifyTextPresent('Full-Fledged practice website for Automation Engineers');\n// Step 4: Click Contact Us\nhomePage.clickContactUs();\n// Step 5: Verify GET IN TOUCH\ncy.contains('Get In Touch').should('be.visible');\n// Step 6: Enter contact details\ncy.get('input[data-qa=\"name\"]').type('Test User');\ncy.get('input[data-qa=\"email\"]').type(`contact.${Date.now()}@test.com`);\ncy.get('input[data-qa=\"subject\"]').type('Test Subject');\ncy.get('textarea[data-qa=\"message\"]').type('This is a test message for automation');\n// Step 7: Upload file (criar arquivo inline)\nconst fileContent = 'Test file content for contact form';\nconst fileName = 'test-contact.txt';\ncy.get('input[name=\"upload_file\"]').then(input => {\n  const blob = new Blob([fileContent], {\n    type: 'text/plain'\n  });\n  const file = new File([blob], fileName, {\n    type: 'text/plain'\n  });\n  const dataTransfer = new DataTransfer();\n  dataTransfer.items.add(file);\n  input[0].files = dataTransfer.files;\n  input[0].dispatchEvent(new Event('change', {\n    bubbles: true\n  }));\n});\n// Step 8: Click Submit\ncy.get('input[data-qa=\"submit-button\"]').click();\n// Step 9: Handle alert\ncy.on('window:alert', text => {\n  expect(text).to.contains('OK');\n  return true;\n});\n// Step 10: Verify success message\ncy.contains('Success! Your details have been submitted successfully.', {\n  timeout: 10000\n}).should('be.visible');\n// Step 11: Click Home\ncy.get('.btn.btn-success').contains('Home').click();\n// Step 12: Verify home page\ncy.url().should('eq', Cypress.config().baseUrl + '/');\nhomePage.verifyTextPresent('Full-Fledged practice website for Automation Engineers');",
               "err": {},
-              "uuid": "3bcb036e-849a-42a1-a39b-e217c92655a8",
-              "parentUUID": "30ee7632-018f-4c74-b132-0b54502bd803",
+              "uuid": "5305eb59-80c5-4a1a-bc83-2cefdbc9edd7",
+              "parentUUID": "0b016ee0-123b-4d9b-bf25-0af84e78b548",
               "isHook": false,
               "skipped": false
             }
           ],
           "suites": [],
           "passes": [
-            "3bcb036e-849a-42a1-a39b-e217c92655a8"
+            "5305eb59-80c5-4a1a-bc83-2cefdbc9edd7"
           ],
           "failures": [],
           "pending": [],
           "skipped": [],
-          "duration": 7508,
+          "duration": 4894,
           "root": false,
           "rootEmpty": false,
           "_timeout": 2000
